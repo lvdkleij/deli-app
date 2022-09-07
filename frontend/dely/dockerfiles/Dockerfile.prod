@@ -1,0 +1,16 @@
+### STAGE 1: Build ###
+FROM node:current-alpine3.15
+WORKDIR /app
+
+RUN npm cache clean --force
+# Install dependencies
+COPY ./package*.json ./
+
+RUN npm i
+COPY . ./
+
+RUN npm run build --prod
+
+# Application metadata
+EXPOSE 4200
+CMD ["npm", "run", "start"]

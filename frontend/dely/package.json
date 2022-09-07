@@ -1,11 +1,11 @@
 {
   "name": "dely",
   "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "LAKleij",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ionic serve --host 0.0.0.0",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

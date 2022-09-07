@@ -1,0 +1,22 @@
+### STAGE 1: Build ###
+FROM node:current-alpine3.15
+
+WORKDIR /usr/src/app
+
+# # Install dependencies
+# COPY ../package*.json ./
+# RUN npm i -g @ionic/cli
+
+# ## Install python dependency (not by default in alpine version)
+# RUN apk --no-cache add --virtual native-deps \
+#   g++ gcc libgcc libstdc++ linux-headers make python3 && \
+#   npm i --quiet node-gyp -g &&\
+#   npm i --quiet && \
+#   apk del native-deps
+
+# RUN npm i
+# COPY ../ ./
+
+# # Application metadata
+# EXPOSE 8100
+# CMD ["npm", "run", "start"]

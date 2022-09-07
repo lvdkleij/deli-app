@@ -2,15 +2,14 @@
 FROM node:current-alpine3.15
 WORKDIR /app
 
+# Ensure clean installation
 RUN npm cache clean --force
-# Install dependencies
-COPY ./package*.json ./
 
+# Install dependencies
+COPY package*.json ./
 RUN npm i
 COPY . ./
 
-RUN npm run build --prod
-
 # Application metadata
 EXPOSE 4200
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "build", "--prod"]

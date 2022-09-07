@@ -1,4 +1,4 @@
-{
+module.exports = {
   "root": true,
   "ignorePatterns": ["projects/**/*"],
   "overrides": [
@@ -6,6 +6,8 @@
       "files": ["*.ts"],
       "parserOptions": {
         "project": ["tsconfig.json", "e2e/tsconfig.json"],
+        "tsconfigRootDir": __dirname,
+        "sourceType": "module",
         "createDefaultProgram": true
       },
       "extends": [
@@ -14,6 +16,8 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "no-underscore-dangle":"off",
+        "@typescript-eslint/member-ordering": "off",
         "@angular-eslint/component-class-suffix": [
           "error",
           {

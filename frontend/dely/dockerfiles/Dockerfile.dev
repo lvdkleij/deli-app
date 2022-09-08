@@ -1,5 +1,5 @@
 ### STAGE 1: Build ###
-FROM node:current-alpine3.15
+FROM node:18-alpine3.15
 WORKDIR /app
 
 # Ensure clean installation
@@ -11,11 +11,8 @@ RUN npm i -g @angular/cli
 RUN npm i -g @ionic/cli
 
 # ## Install python dependency (not by default in alpine version)
-RUN apk --no-cache add --virtual native-deps \
-  g++ gcc libgcc libstdc++ linux-headers make python3 && \
-  npm i --quiet node-gyp -g && \
-  npm i --quiet && \
-  apk del native-deps
+RUN apk add --update python3 make g++ \
+   && rm -rf /var/cache/apk/*
 
 RUN npm i
 

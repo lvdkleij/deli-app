@@ -1,5 +1,8 @@
 language: generic
 sudo: required
+env:
+  global: 
+    - SHA=$(git rev-parse HEAD)
 services:
   - docker
 

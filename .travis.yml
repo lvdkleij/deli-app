@@ -12,10 +12,10 @@ script:
 deploy:
  provider: elasticbeanstalk
  region: "eu-west-1"
- app: "Dely"
- env: "Dely-env"
+ app: "test-app"
+ env: "test-app-env"
  bucket_name: "elasticbeanstalk-eu-west-1-986267899441"
- bucket_path: "Dely"
+ bucket_path: "test-app"
  on:
   branch: main
  access_key_id: "$AWS_ACCESS_KEY"

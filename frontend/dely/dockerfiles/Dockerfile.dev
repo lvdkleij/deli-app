@@ -6,7 +6,7 @@ WORKDIR /app
 RUN npm cache clean --force
 
 # Install dependencies
-COPY package*.json ./
+COPY ../package*.json ./
 RUN npm i -g @angular/cli
 RUN npm i -g @ionic/cli
 
@@ -16,7 +16,7 @@ RUN apk add --update python3 make g++ \
 
 RUN npm i
 
-COPY . ./
+COPY ../ ./
 
 # Application metadata
 EXPOSE 8100

@@ -3,7 +3,7 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: ./dockerfiles/Dockerfile.dev
     ports:
       - "8100:8100"
     volumes:

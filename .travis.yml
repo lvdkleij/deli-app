@@ -10,13 +10,7 @@ script:
   - docker run -e CI=true lvdkleij/deli-app npm run test
 
 deploy:
- provider: elasticbeanstalk
- region: "eu-west-1"
- app: "test-app"
- env: "Testapp-env"
- bucket_name: "elasticbeanstalk-eu-west-1-986267899441"
- bucket_path: "test-app"
- on:
-  branch: main
- access_key_id: "$AWS_ACCESS_KEY"
- secret_access_key: "$AWS_SECRET"
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master

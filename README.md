@@ -1,1 +1,1 @@
-# deli-app
+# Dely-app

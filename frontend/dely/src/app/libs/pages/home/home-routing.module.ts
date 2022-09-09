@@ -8,9 +8,22 @@ const routes: Routes = [
     component: HomePage,
     children: [
       {
+        path: 'pantry',
+        loadChildren: () => import('./pantry/pantry.module').then( m => m.PantryPageModule)
+      },
+      {
         path: 'shopping-lists',
         loadChildren: () => import('./shopping-lists/shopping-lists.module').then( m => m.ShoppingListsPageModule)
-      }
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('./user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+      },
+      {
+        path: '',
+        redirectTo: 'shopping-lists',
+        pathMatch: 'full'
+      },
     ]
   },
 ];

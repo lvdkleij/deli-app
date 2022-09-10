@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { ShoppingListsPageRoutingModule } from './shopping-lists-routing.module';
 
 import { ShoppingListsPage } from './shopping-lists.page';
+import { NavigationTopModule } from 'src/app/libs/components/navigation/top/navigation-top.module';
+import { CreateShoppingListModalModule } from 'src/app/libs/components/modals/create-shopping-list/create-shopping-list.module';
 
 @NgModule({
   imports: [
@@ -14,7 +16,9 @@ import { ShoppingListsPage } from './shopping-lists.page';
     FormsModule,
     IonicModule,
     ShoppingListsPageRoutingModule,
+    NavigationTopModule,
+    CreateShoppingListModalModule
   ],
-  declarations: [ShoppingListsPage]
+  declarations: [ShoppingListsPage],
 })
 export class ShoppingListsPageModule {}

@@ -1,0 +1,22 @@
+<div class="container">
+  <navigation-top>
+    <span start (click)="onClose()">Cancel</span>
+    <span end (click)="onDone()">Done</span>
+  </navigation-top>
+
+  <div class="content padding-v--md">
+    <input class="padding-h--md" type="text" placeholder="Name of your list" [(ngModel)]="listName">
+
+    <div class="choose-background" >
+      <h3 class="padding-rem-h--md margin-rem-b--sm">Choose a background</h3>
+      <div class="backgrounds padding-rem-v--sm padding-rem-h--md">
+        <div class="background" *ngFor="let background of ['red','blue','green','purple','black','white','cyan', 'red', 'blue', 'red', 'purple',  'blue', 'red', 'purple', 'cyan']" [ngStyle]="{'background-color': background}" (click)="onSelectBackground(background)"></div>
+      </div>
+    </div>
+    <div class="share-section padding-rem-h--md">
+      <h3 class="margin-b--sm">Shop together</h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit ullam assumenda ut tempore non beatae rerum incidunt repudiandae.</p>
+    </div>
+  </div>
+
+</div>

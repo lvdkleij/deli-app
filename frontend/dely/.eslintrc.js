@@ -18,17 +18,17 @@ module.exports = {
       "rules": {
         "no-underscore-dangle":"off",
         "@typescript-eslint/member-ordering": "off",
+        "@typescript-eslint/naming-convention": "off",
         "@angular-eslint/component-class-suffix": [
           "error",
           {
-            "suffixes": ["Page", "Component"]
+            "suffixes": ["Page", "Component", "Feature", "Service", "Resolver", "Directive", "Pipe", "Modal"]
           }
         ],
         "@angular-eslint/component-selector": [
           "error",
           {
             "type": "element",
-            "prefix": "app",
             "style": "kebab-case"
           }
         ],
@@ -36,7 +36,6 @@ module.exports = {
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
             "style": "camelCase"
           }
         ]

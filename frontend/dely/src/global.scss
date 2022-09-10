@@ -9,6 +9,10 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+ // https://www.joshwcomeau.com/shadow-palette/
+//https://www.joshwcomeau.com/css/designing-shadows/
+@use "sass:map";
+
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
 
@@ -24,3 +28,172 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+
+html, body {
+  overflow: hidden;
+}
+
+body {
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.scroll-content {
+  padding-bottom: 0 !important;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+:root {
+
+  // spacing
+  --space-em-unit: 1em;
+  --space-em-xxs:  calc(0.25 * var(--space-em-unit));
+  --space-em-xs:   calc(0.5 * var(--space-em-unit));
+  --space-em-sm:   calc(0.75 * var(--space-em-unit));
+  --space-em-md:   calc(1.25 * var(--space-em-unit));
+  --space-em-lg:   calc(2 * var(--space-em-unit));
+  --space-em-xl:   calc(3.25 * var(--space-em-unit));
+  --space-em-xxl:  calc(5.25 * var(--space-em-unit));
+
+  --space-rem-unit: 1rem;
+  --space-rem-xxs:  calc(0.25 * var(--space-rem-unit));
+  --space-rem-xs:   calc(0.5 * var(--space-rem-unit));
+  --space-rem-sm:   calc(0.75 * var(--space-rem-unit));
+  --space-rem-md:   calc(1.25 * var(--space-rem-unit));
+  --space-rem-lg:   calc(2 * var(--space-rem-unit));
+  --space-rem-xl:   calc(3.25 * var(--space-rem-unit));
+  --space-rem-xxl:  calc(5.25 * var(--space-rem-unit));
+
+  // typography
+  --font-primary: sans-serif;
+  --font-secondary: serif;
+
+  --text-base-size: 1em;
+  --text-scale-ratio: 1.2;
+
+  --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
+  --text-sm: calc(1em / var(--text-scale-ratio));
+  --text-md: calc(1em * var(--text-scale-ratio));
+  --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xxxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+
+  // colors
+  --color-text: var(--gray-10);
+  --color-text-heading: var(--black);
+  --color-text-subtle: var(--gray-6);
+  --color-link: var(--color-primary);
+  --color-link-visited: var(--color-primary-dark);
+}
+
+$units: (
+  "xxs": ( 'rem': --space-rem-xxs, 'em': --space-em-xxs ),
+  "xs": ( 'rem': --space-rem-xs, 'em': --space-em-xs ),
+  "sm": ( 'rem': --space-rem-sm, 'em': --space-em-sm ),
+  "md": ( 'rem': --space-rem-md, 'em': --space-em-md ),
+  "lg": ( 'rem': --space-rem-lg, 'em': --space-em-lg ),
+  "xl": ( 'rem': --space-rem-xl, 'em': --space-em-xl ),
+  "xxl": ( 'rem': --space-rem-xxl, 'em': --space-em-xxl )
+);
+
+$directions: (
+  "left": "l",
+  "top": "t",
+  "right": "r",
+  "bottom": "b"
+);
+
+.margin--none {
+  margin: 0;
+}
+
+.padding--none {
+  padding: 0;
+}
+
+@each $unit, $var in $units {
+
+  .padding--#{$unit} {
+    padding: var(map.get($var, 'em'));
+  }
+  .padding-v--#{$unit} {
+    padding-top: var(map.get($var, 'em'));
+    padding-bottom: var(map.get($var, 'em'));
+  }
+  .padding-h--#{$unit} {
+    padding-left: var(map.get($var, 'em'));
+    padding-right: var(map.get($var, 'em'));
+  }
+  @each $full, $abr in $directions {
+    .padding-#{$abr}--#{$unit} {
+      padding-#{$full}: var(map.get($var, 'em'));
+    }
+  }
+
+  .margin--#{$unit} {
+    margin: var(map.get($var, 'em'));
+  }
+  .margin-v--#{$unit} {
+    margin-top: var(map.get($var, 'em'));
+    margin-bottom: var(map.get($var, 'em'));
+  }
+  .margin-h--#{$unit} {
+    margin-left: var(map.get($var, 'em'));
+    margin-right: var(map.get($var, 'em'));
+  }
+  @each $full, $abr in $directions {
+    .margin-#{$abr}--#{$unit} {
+      margin-#{$full}: var(map.get($var, 'em'));
+    }
+  }
+
+
+
+  //rem
+
+  .padding-rem--#{$unit} {
+    padding: var(map.get($var, 'rem'));
+  }
+  .padding-rem-v--#{$unit} {
+    padding-top: var(map.get($var, 'rem'));
+    padding-bottom: var(map.get($var, 'rem'));
+  }
+  .padding-rem-h--#{$unit} {
+    padding-left: var(map.get($var, 'rem'));
+    padding-right: var(map.get($var, 'rem'));
+  }
+  @each $full, $abr in $directions {
+    .padding-rem-#{$abr}--#{$unit} {
+      padding-#{$full}: var(map.get($var, 'rem'));
+    }
+  }
+
+  .margin-rem--#{$unit} {
+    margin: var(map.get($var, 'rem'));
+  }
+  .margin-rem-v--#{$unit} {
+    margin-top: var(map.get($var, 'rem'));
+    margin-bottom: var(map.get($var, 'rem'));
+  }
+  .margin-rem-h--#{$unit} {
+    margin-left: var(map.get($var, 'rem'));
+    margin-right: var(map.get($var, 'rem'));
+  }
+  @each $full, $abr in $directions {
+    .margin-rem-#{$abr}--#{$unit} {
+      margin-#{$full}: var(map.get($var, 'rem'));
+    }
+  }
+
+
+
+}

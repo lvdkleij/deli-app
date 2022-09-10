@@ -1,0 +1,26 @@
+
+
+<div class="ff" *ngIf="true">
+  <div class="container" *ngFor="let aile of data; let i = index">
+    <ng-container *ngIf="aile.itemsUnselected.length">
+      <h2 class="padding-rem-h--md  margin-t--sm">{{ aile.name }}</h2>
+      <ingredient-item
+        class="item"
+        *ngFor="let _ of aile.itemsUnselected; let j = index"
+        (isSelected)="onIsSelected('itemsUnselected', i, j)"
+        (destroy)="onDeleteItem('itemsUnselected', i, j)"
+        (contentClick)="onContentClick('itemsUnselected', i, j)"
+        @fadeAnim></ingredient-item>
+    </ng-container>
+  </div>
+</div>
+
+<div class="ff" *ngIf="true">
+  <h1 class="padding-rem--md">Doorgestreept</h1>
+  <div class="container" *ngFor="let aile of data; let i = index">
+    <ng-container *ngIf="aile.itemsSelected.length">
+      <!-- <h2 class="padding-rem-h--md  margin-t--sm">{{ aile.name }}</h2> -->
+      <ingredient-item class="item" *ngFor="let _ of aile.itemsSelected; let j = index" (isSelected)="onIsSelected('itemsSelected',i, j)" (destroy)="onDeleteItem('itemsSelected',i, j)"  @fadeAnim></ingredient-item>
+    </ng-container>
+  </div>
+</div>

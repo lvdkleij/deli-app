@@ -1,0 +1,12 @@
+button {
+  border-radius: 200px;
+  background-color: white;
+  color: #666565;
+}
+
+.active {
+  background-color: rgb(38, 178, 36);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px 0px, rgba(14, 65, 13, 0.3) 0px 1px 2px 0px;
+  color: white;
+  transition: all 0.1s;
+}

@@ -1,0 +1,47 @@
+<div class="container">
+  <div
+    #item
+    *ngIf="data"
+    class="item-wrapper padding-h--md padding-v--md"
+    [ngClass]="{ 'transition': setTransition }">
+
+      <div class="selected-wrapper" (click)="onIsSelected()" [ngClass]="{ 'isSelected' : _isSelected }">
+        <ion-icon class="check-icon" name="checkmark-outline" *ngIf="_isSelected"></ion-icon>
+      </div>
+
+      <div class="content-wrapper" (click)="contentClick.emit(true)">
+        <div class="image-wrapper"></div>
+        <div class="info-wrapper">
+          <h3>{{ data.name }}</h3>
+          <p *ngIf="data.description as description">{{ description }}</p>
+          <div class="price-quantity-wrapper">
+              <span *ngIf="data.price as price">{{ price.currency }}{{ price.value }}</span>
+              <span *ngIf="data.quantity as quantity">{{ quantity.value }} {{ quantity.type }}</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="amount-placeholder"></div>
+      <div class="item-lock-background" [@itemLockAnim]="selectAmount | async" (click)="hideAmount()"></div>
+
+      <div class="select-amount-wrapper"  [ngClass]="{ 'expand': selectAmount | async}">
+          <div class="selected-wrapper left" (click)="addOrSubtractOne('subtract')">
+            <ion-icon name="remove-outline"></ion-icon>
+          </div>
+          <div class="amount" [@expandShrinkAnim]="expandShrink">
+            <div class="lock-amount-background" *ngIf="(selectAmount | async) === false" (click)="setAmount()"></div>
+            <span class="amount-text">{{ data.amount }}</span>
+          </div>
+          <div class="selected-wrapper right" (click)="addOrSubtractOne('add')">
+            <ion-icon class="add-icon" name="add-outline"></ion-icon>
+          </div>
+      </div>
+
+  </div>
+  <div class="delete-wrapper" #delete [ngClass]="{ 'transition': setTransition || setTransitionDelete }" (click)="onDestroy()">
+    <span class="material-symbols-outlined ">
+      delete
+    </span>
+  </div>
+</div>

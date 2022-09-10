@@ -1,0 +1,28 @@
+
+.item-container {
+  position: relative;
+  width: 100%;
+  font-size: var(--text-sm) !important;
+
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+
+  &:focus {
+    background-color: rgba(128, 128, 128, 0.192);
+  }
+
+}
+
+.item-icon {
+  flex-shrink: 0;
+}
+
+.option {
+  &:focus {
+    background-color: rgba(128, 128, 128, 0.1);
+  }
+}

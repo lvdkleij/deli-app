@@ -1,9 +1,15 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>shopping-list</ion-title>
-  </ion-toolbar>
-</ion-header>
+<navigation-top [data]="{ title: 'ffasfasfasdfadfasf'}">
+  <span start routerLink="/shopping-lists">lists</span>
+  <span end>settings</span>
+</navigation-top>
 
 <ion-content>
-
+  <div #scrollContainer *ngIf="data | async as listData" class="scroll-container" [ngStyle]="{ 'padding-bottom': (keyboardListener.keyboardHeight$ | async) + 'px'}">
+    <h1 class="padding-rem-h--md padding-b--lg">{{ listData.name }}</h1>
+    <list-feature [data]="listData.items"></list-feature>
+  </div>
 </ion-content>
+<item-modal></item-modal>
+<search-modal></search-modal>
+
+<!-- <search-ingredients class="search-ingredients"></search-ingredients> -->

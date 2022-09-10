@@ -1,0 +1,10 @@
+<div class="item-container">
+  <div class="item padding--sm" (click)="onExpand()" tabindex="1">
+    <span>{{ data.name }}</span>
+    <ion-icon class="item-icon" name="chevron-forward-outline" [@rotateAnimation]="expand"></ion-icon>
+  </div>
+  <div *ngIf="expand" class="item-more">
+    <div class="option padding--sm padding-l--md" tabindex="2">Koppel aan voorraadkast</div>
+    <div class="option padding--sm padding-l--md" tabindex="2">Verwijder lijst</div>
+  </div>
+</div>

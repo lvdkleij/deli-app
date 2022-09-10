@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ListsResolver } from 'src/app/libs/resolvers/lists-resolver/lists-resolver.resolver';
 
 import { ShoppingListsPage } from './shopping-lists.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ShoppingListsPage
+    component: ShoppingListsPage,
+    resolve: {
+      listsResolver: ListsResolver
+    }
   },
   {
     path: ':id',

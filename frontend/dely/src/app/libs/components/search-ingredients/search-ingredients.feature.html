@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="ff padding-h--md padding-v--xs">
+    <div class="selected-wrapper right" (click)="onPresentModal()">
+      <ion-icon class="add-icon" name="add-outline"></ion-icon>
+    </div>
+    <ion-input type="text" placeholder="Voeg iets toe aan je lijst..." (click)="onPresentModal()"></ion-input>
+    <span *ngIf="modalService.isPresent$(modals.Search) | async" class="zz" (click)="onDismissModal()">sluiten</span>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+.container {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.141);
+  background-color: white;
+}
+.ff {
+  display: flex;
+  gap: 1.5em;
+  font-size: var(--text-sm);
+  align-items: center;
+}
+
+.zz {
+  margin-left: auto;
+}
+
+.add-icon {
+  color: white;
+  background-color: rgb(42, 82, 212);
+  border-radius: 100%;
+
+  border: 1px solid black;
+  height: 1.5em;
+  width: 1.5em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// :host {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 48px;
+//   height: fit-content;
+//   transform: translateY(0);
+// }

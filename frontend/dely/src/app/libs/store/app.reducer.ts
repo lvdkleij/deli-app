@@ -1,19 +1,21 @@
 
 
 import { createReducer, on } from '@ngrx/store';
-import { addShoppingList, lastListPathAction, setShoppingLists } from './app.actions';
+import { addShoppingList, setActiveShoppingList, setProducts, setShoppingLists } from './app.actions';
 
 
 
 
 export interface AppState {
   lists: any[];
-  lastListPath: string;
+  activeShoppingList: string;
+  products: any[];
 }
 
 const initialState: AppState = {
   lists: [],
-  lastListPath: ''
+  activeShoppingList: '',
+  products: []
 };
 
 const _appReducer = createReducer(
@@ -26,9 +28,13 @@ const _appReducer = createReducer(
     ...state,
     lists: state.lists.concat([list])
   })),
-  on(lastListPathAction, (state, { lastListPath }) => ({
+  on(setActiveShoppingList, (state, { activeShoppingList }) => ({
     ...state,
-    lastListPath
+    activeShoppingList
+  })),
+  on(setProducts, (state, { products }) => ({
+    ...state,
+    products
   }))
 );
 

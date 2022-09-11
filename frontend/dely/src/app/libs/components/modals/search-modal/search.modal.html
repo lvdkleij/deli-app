@@ -1,1 +1,8 @@
-<search-ingredient-list></search-ingredient-list>
+<div class="container padding-rem-h--md padding-rem-v--md">
+  <search-ingredient-list [products]="products$ | async" (product)="category1 = true" ></search-ingredient-list>
+</div>
+
+
+<div class="container2 padding-rem-h--md padding-rem-v--md" [@slideLeftAnim2]="category1">
+  <search-ingredient-list [products]="(products$ | async)" ></search-ingredient-list>
+</div>

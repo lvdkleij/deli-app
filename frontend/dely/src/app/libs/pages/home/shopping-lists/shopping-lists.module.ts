@@ -9,6 +9,8 @@ import { ShoppingListsPageRoutingModule } from './shopping-lists-routing.module'
 import { ShoppingListsPage } from './shopping-lists.page';
 import { NavigationTopModule } from '@components/navigation';
 import { CreateShoppingListModalModule } from '@components/modals';
+import { ShoppingListsComponentModule } from '@components/shopping-lists';
+import { HideMainHeaderDirective } from '@directives';
 
 @NgModule({
   imports: [
@@ -17,8 +19,11 @@ import { CreateShoppingListModalModule } from '@components/modals';
     IonicModule,
     ShoppingListsPageRoutingModule,
     NavigationTopModule,
-    CreateShoppingListModalModule
+    CreateShoppingListModalModule,
+    ShoppingListsComponentModule
   ],
-  declarations: [ShoppingListsPage],
+  declarations: [
+    ShoppingListsPage
+  ],
 })
 export class ShoppingListsPageModule {}

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListsResolver } from 'src/app/libs/resolvers/lists-resolver/lists-resolver.resolver';
+import { ListsResolver } from '@resolvers';
 
 import { ShoppingListsPage } from './shopping-lists.page';
 

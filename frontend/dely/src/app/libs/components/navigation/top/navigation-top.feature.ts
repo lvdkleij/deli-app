@@ -1,24 +1,21 @@
 
 
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef,
+  EventEmitter, Input, OnDestroy, Output, Renderer2, ViewChild } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
-import { showNavBarAnim } from './animations';
 import { OptionsClickListenerService } from './services/options.service';
 
 @Component({
   selector: 'navigation-top',
   templateUrl: './navigation-top.feature.html',
   styleUrls: ['./navigation-top.feature.scss'],
-  animations: [showNavBarAnim]
 })
 export class NavigationTopFeature implements AfterViewInit, OnDestroy {
-
-  // @HostBinding('@showNavBarAnim') get showNavBarToggle() {
-  //   return this.showNavBar;
-  // };
-
-  @ViewChild('toolbar') toolbar: ElementRef;
+  @Output() toolbar = new EventEmitter<any>();
+  @ViewChild('header') set _toolbar(value) {
+    this.toolbar.emit(value);
+  };
 
   @Input() data: { title?: string } = {};
 

@@ -8,11 +8,11 @@ import { ShoppingListPageRoutingModule } from './shopping-list-routing.module';
 
 import { ShoppingListPage } from './shopping-list.page';
 import { ItemModalModule, SearchModalModule } from '@components/modals';
-import { SearchIngredientsModule } from '@components/search-ingredients';
 import { SharedUiModule } from '@components/ui';
 import { SideMenuFeatureModule } from '@components/side-menu';
 import { ListModule } from '@components/lists';
-import { NavigationTopModule } from '@components/navigation';
+import { NavigationTopWithSearchbarComponentModule } from '@components/navigation';
+import { HideMainHeaderDirective } from '@directives';
 
 @NgModule({
   imports: [
@@ -20,14 +20,13 @@ import { NavigationTopModule } from '@components/navigation';
     FormsModule,
     IonicModule,
     ShoppingListPageRoutingModule,
-    NavigationTopModule,
+    NavigationTopWithSearchbarComponentModule,
     ListModule,
     SideMenuFeatureModule,
     SharedUiModule,
-    SearchIngredientsModule,
     ItemModalModule,
     SearchModalModule
   ],
-  declarations: [ShoppingListPage]
+  declarations: [ShoppingListPage, HideMainHeaderDirective]
 })
 export class ShoppingListPageModule {}

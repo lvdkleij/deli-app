@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 
 @Component({
-  selector: 'ui-searchbar--1',
+  selector: 'searchbar',
   templateUrl: './searchbar--1.component.html',
   styleUrls: ['./searchbar--1.component.scss']
 })

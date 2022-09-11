@@ -1,9 +1,22 @@
 
+.container {
+  height: 100%;
+}
+
+.container2 {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  transform: translateX(100%);
+  background-color: white;
+  box-shadow: 0 1px 2px #0006;
+}
 
 :host {
   position: absolute;
-  z-index: 10;
-  top: 48px;
+  z-index: 0;
+  top: 60px;
   right: 0;
   bottom: 0;
   left: 0;

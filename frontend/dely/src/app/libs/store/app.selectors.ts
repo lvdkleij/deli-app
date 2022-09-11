@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { AppState, StoreState } from './app.reducer';
+import { StoreState } from './app.reducer';
 
 export const selectApp = (state: StoreState) => state;
 
@@ -13,7 +13,12 @@ export const selectLists = createSelector(
   (state: StoreState) => state.app.lists
 );
 
-export const selectLastListPath = createSelector(
+export const selectActiveShoppingList = createSelector(
   selectApp,
-  (state: StoreState) => state.app.lastListPath
+  (state: StoreState) => state.app.activeShoppingList
+);
+
+export const selectProducts = createSelector(
+  selectApp,
+  (state: StoreState) => state.app.products
 );

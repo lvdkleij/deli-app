@@ -3,6 +3,8 @@ module.exports = {
     '@components/(.*)': '<rootDir>/src/app/libs/components/$1',
     '@services': '<rootDir>/src/app/libs/services/index.ts',
     '@resolvers': '<rootDir>/src/app/libs/resolvers/index.ts',
+    '@guards': '<rootDir>/src/app/libs/guards/index.ts',
+    '@directives': '<rootDir>/src/app/libs/directives/index.ts',
     '@store': '<rootDir>/src/app/libs/store/index.ts',
   },
   preset: 'jest-preset-angular',

@@ -1,5 +1,5 @@
 
-<ion-header>
+<ion-header #header>
   <ion-toolbar class="toolbar padding-rem-h--sm">
     <ion-buttons slot="start">
       <ng-content select="[start]"></ng-content>
@@ -9,6 +9,7 @@
     </ion-buttons>
     <h1 class="title" *ngIf="data.title">{{ data.title }}</h1>
   </ion-toolbar>
+  <ng-content select="[subheader]"></ng-content>
 </ion-header>
 
 

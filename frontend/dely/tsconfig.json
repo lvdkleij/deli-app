@@ -21,8 +21,14 @@
       "@services": [
         "src/app/libs/services/index.ts"
       ],
+      "@directives": [
+        "src/app/libs/directives/index.ts"
+      ],
       "@resolvers": [
         "src/app/libs/resolvers/index.ts"
+      ],
+      "@guards": [
+        "src/app/libs/guards/index.ts"
       ],
       "@components/*": [
         "src/app/libs/components/*"

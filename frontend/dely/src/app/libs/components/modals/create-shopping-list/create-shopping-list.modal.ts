@@ -6,6 +6,8 @@ import { ScalePageService } from '@services';
 import { Modals } from '../modal.constants';
 import { ModalService } from '../modal.service';
 import { slideLeftAnim } from './create-shopping-list.animations';
+import { Store } from '@ngrx/store';
+import { addShoppingList, StoreState } from '@store';
 
 
 @Component({
@@ -18,17 +20,27 @@ export class CreateShoppingListModal implements OnInit {
 
   @HostBinding('@slideLeftAnim') get slideIn() { return this.value; };
   @HostBinding('style.height') height;
-  @Output() done = new EventEmitter();
+
+  BACKGROUNDS = [
+    'rgba(255, 0, 0, 0.25)',
+    'rgba(0, 255, 0, 0.25)',
+    'rgba(0, 0, 255, 0.25)',
+    'rgba(255, 255, 0, 0.25)',
+    'rgba(0, 255, 255, 0.25)',
+    'rgba(255, 255, 255, 0.25)',
+    'rgba(127, 255, 0, 0.25)',
+    'rgba(255, 0, 255, 0.25)',
+  ];
 
   subscription: Subscription;
   value = null;
   listName = '';
-  backgroundColor = '';
-
+  background = '';
 
   constructor(
     public modalService: ModalService,
-    readonly scalePageService: ScalePageService
+    readonly scalePageService: ScalePageService,
+    private readonly store: Store<StoreState>
   ) {}
 
   ngOnInit(): void {
@@ -46,10 +58,11 @@ export class CreateShoppingListModal implements OnInit {
 
   onDone() {
     this.modalService.dismiss(Modals.CREATE_SHOPPING_LIST);
-    this.done.emit({ listName: this.listName, backgroundColor: this.backgroundColor });
+    this.store.dispatch(addShoppingList({ list: { name: this.listName, background: this.background, items: [] }}));
     this.scalePageService.resetScale();
   }
-  onSelectBackground(backgroundColor: string) {
-    this.backgroundColor = backgroundColor;
+
+  onSelectBackground(background: string) {
+    this.background = background;
   }
 }

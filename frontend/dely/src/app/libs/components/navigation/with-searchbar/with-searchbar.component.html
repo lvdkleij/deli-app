@@ -1,0 +1,11 @@
+<navigation-top [data]="data" (toolbar)="getMainToolbar($event)">
+  <ng-content select="[start]" start></ng-content>
+  <ng-content select="[end]" end></ng-content>
+  <div class="searchbar-wrapper padding-rem-h--xl padding-rem-v--sm" subheader>
+    <div class="selected-wrapper right" (click)="onPresentModal()">
+      <ion-icon class="add-icon" name="add-outline"></ion-icon>
+    </div>
+    <ion-input type="text" placeholder="Voeg iets toe aan je lijst..." (click)="onPresentModal()"></ion-input>
+    <span *ngIf="modalService.isPresent$(modals.SEARCH) | async" class="zz" (click)="onDismissModal()">sluiten</span>
+  </div>
+</navigation-top>

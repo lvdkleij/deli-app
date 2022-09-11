@@ -1,17 +1,15 @@
 
 
 
-<div class="container padding-h--md">
+<div class="container">
 
-  <div *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
-    <div class="category margin-b--sm">
-      <h3>Vlees, Kip, vis en vega</h3>
-      <span (click)="onClick(i)">ff</span>
-    </div>
+  <div *ngFor="let category of products">
+    <ingredient-item-search [data]="{ name: category.name, icon: ''}" (click)="product.emit(category.name)"></ingredient-item-search>
 
+<!--
     <div class="items" *ngIf="lala[i]">
       <ingredient-item-search [data]="{ name, icon: '' }" (details)="onProductClick($event)" *ngFor="let name of ['kipfilet','runderlap','biefstuk','sukadelap','kalkoenfilet']"></ingredient-item-search>
-    </div>
+    </div> -->
 
   </div>
 

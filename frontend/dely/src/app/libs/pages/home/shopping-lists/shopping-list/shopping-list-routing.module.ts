@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListsResolver } from 'src/app/libs/resolvers/lists-resolver/lists-resolver.resolver';
+import { ListsResolver } from '@resolvers';
+import { ShoppingListGuard } from '@guards';
 
 import { ShoppingListPage } from './shopping-list.page';
 
@@ -10,12 +11,14 @@ const routes: Routes = [
     component: ShoppingListPage,
     resolve: {
       listsResolver: ListsResolver
-    }
+    },
+    canActivate: [ShoppingListGuard]
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
+  providers: [ShoppingListGuard]
 })
 export class ShoppingListPageRoutingModule {}

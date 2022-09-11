@@ -1,8 +1,6 @@
-.container {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.141);
+.searchbar-wrapper {
   background-color: white;
-}
-.ff {
+
   display: flex;
   gap: 1.5em;
   font-size: var(--text-sm);
@@ -26,12 +24,3 @@
   align-items: center;
   justify-content: center;
 }
-
-// :host {
-//   position: absolute;
-//   left: 0;
-//   right: 0;
-//   top: 48px;
-//   height: fit-content;
-//   transform: translateY(0);
-// }

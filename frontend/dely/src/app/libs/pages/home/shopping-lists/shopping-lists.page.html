@@ -1,19 +1,14 @@
 <navigation-top [data]="{ title: ''}">
-  <ion-icon name="chevron-back-outline" start style="font-size: 24px;" *ngIf="lastListPath$ | async as path" [routerLink]="path"></ion-icon>
+  <ion-icon name="chevron-back-outline" start style="font-size: 24px;" *ngIf="activeShoppingList$ | async as activeShoppingList" [routerLink]="activeShoppingList"></ion-icon>
   <span end>settings</span>
 </navigation-top>
 
-<ion-content [ngStyle]="{ 'scale': (scalePageService.currentPageScale$ | async).scale, 'filter': (scalePageService.currentPageScale$ | async).blur }">
-  <div class="container padding-h--md">
-    <div class="list-card padding-rem-h--md padding-rem-v--sm" *ngFor="let list of (data$ | async)" (click)="onListClick(list.name)">
-      <h1>{{ list.name }}</h1>
-    </div>
-  </div>
+<ion-content [scrollEvents]="true" [ngStyle]="{ 'scale': (scalePageService.currentPageScale$ | async).scale, 'filter': (scalePageService.currentPageScale$ | async).blur }">
+  <shopping-lists-component [shoppingListsData]="shoppingListsData$ | async"></shopping-lists-component>
 
-  <button class="add-list-button" (click)="onCreateList()" *ngIf="!addList">
+  <button class="add-list-button" (click)="onCreateList()">
     <ion-icon class="add-icon" name="add-outline"></ion-icon>
   </button>
-
 </ion-content>
 
-<create-shopping-list-modal (done)="onDone($event)"></create-shopping-list-modal>
+<create-shopping-list-modal></create-shopping-list-modal>

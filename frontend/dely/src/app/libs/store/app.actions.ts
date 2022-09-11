@@ -10,7 +10,12 @@ export const addShoppingList = createAction(
   props<{ list: any }>()
 );
 
-export const lastListPathAction = createAction(
-  '[App] get last list path',
-  props<{ lastListPath: string }>()
+export const setActiveShoppingList = createAction(
+  '[App] set active shopping list',
+  props<{ activeShoppingList: string }>()
+);
+
+export const setProducts = createAction(
+  '[App] set products',
+  props<{ products: any[]}>()
 );

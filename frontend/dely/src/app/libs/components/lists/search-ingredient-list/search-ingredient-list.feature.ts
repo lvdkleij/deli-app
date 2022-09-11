@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 
 @Component({
@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-ingredient-list.feature.scss']
 })
 export class SearchIngredientListFeature {
+
+  @Input() products: any[];
+  @Output() product = new EventEmitter<string>();
 
   lala = {};
 

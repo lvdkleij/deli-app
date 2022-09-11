@@ -10,7 +10,7 @@
     <div class="choose-background" >
       <h3 class="padding-rem-h--md margin-rem-b--sm">Choose a background</h3>
       <div class="backgrounds padding-rem-v--sm padding-rem-h--md">
-        <div class="background" *ngFor="let background of ['red','blue','green','purple','black','white','cyan', 'red', 'blue', 'red', 'purple',  'blue', 'red', 'purple', 'cyan']" [ngStyle]="{'background-color': background}" (click)="onSelectBackground(background)"></div>
+        <list-background-card [background]="_background" [isSelected]="background" *ngFor="let _background of BACKGROUNDS" (click)="onSelectBackground(_background)"></list-background-card>
       </div>
     </div>
     <div class="share-section padding-rem-h--md">

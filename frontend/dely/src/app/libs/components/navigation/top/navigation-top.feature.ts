@@ -4,7 +4,6 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnDestr
 import { NavController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { showNavBarAnim } from './animations';
-import { MenuClickListenerService } from './services/menu/menu.service';
 import { OptionsClickListenerService } from './services/options.service';
 
 @Component({
@@ -46,7 +45,6 @@ export class NavigationTopFeature implements AfterViewInit, OnDestroy {
 
 
   constructor(
-    readonly menuClickListener: MenuClickListenerService,
     readonly optionsClickListener: OptionsClickListenerService,
     private readonly navCtrl: NavController,
     private renderer: Renderer2,
@@ -108,7 +106,6 @@ export class NavigationTopFeature implements AfterViewInit, OnDestroy {
   }
 
   onCloseMenu() {
-    this.menuClickListener.emitChange();
   }
 
   ngOnDestroy() {

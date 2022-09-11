@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { SharedUiModule } from 'src/app/libs/components/ui/shared-ui.module';
-import { NavigationTopModule } from '../../navigation/top/navigation-top.module';
+import { SharedUiModule } from '@components/ui';
+import { NavigationTopModule } from '@components/navigation';
 import { ItemModal } from './item.modal';
 
 

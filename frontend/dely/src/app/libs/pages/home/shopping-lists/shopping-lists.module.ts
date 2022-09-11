@@ -7,8 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { ShoppingListsPageRoutingModule } from './shopping-lists-routing.module';
 
 import { ShoppingListsPage } from './shopping-lists.page';
-import { NavigationTopModule } from 'src/app/libs/components/navigation/top/navigation-top.module';
-import { CreateShoppingListModalModule } from 'src/app/libs/components/modals/create-shopping-list/create-shopping-list.module';
+import { NavigationTopModule } from '@components/navigation';
+import { CreateShoppingListModalModule } from '@components/modals';
 
 @NgModule({
   imports: [

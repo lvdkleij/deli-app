@@ -2,7 +2,7 @@
 import { AfterViewInit, Component, EventEmitter, HostBinding, OnInit, Output } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
-import { ScalePageService } from 'src/app/libs/services/scale-page/scale-page.service';
+import { ScalePageService } from '@services';
 import { Modals } from '../modal.constants';
 import { ModalService } from '../modal.service';
 import { slideLeftAnim } from './create-shopping-list.animations';

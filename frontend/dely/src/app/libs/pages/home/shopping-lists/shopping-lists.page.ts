@@ -3,21 +3,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription, tap } from 'rxjs';
-import { Modals } from 'src/app/libs/components/modals/modal.constants';
-import { ModalService } from 'src/app/libs/components/modals/modal.service';
-import { MenuClickListenerService } from 'src/app/libs/components/navigation/top/services/menu/menu.service';
-import { ScalePageService } from 'src/app/libs/services/scale-page/scale-page.service';
-import { TouchMoveListener } from 'src/app/libs/services/touch-move-listener/touch-move-listener.service';
-import { addShoppingList } from 'src/app/libs/store/app.actions';
-import { StoreState } from 'src/app/libs/store/app.reducer';
-import { selectLastListPath, selectLists } from 'src/app/libs/store/app.selectors';
+import { ScalePageService } from '@services';
+import { selectLastListPath, selectLists, addShoppingList, StoreState } from '@store';
+import { ModalService, Modals } from '@components/modals';
 
 @Component({
   selector: 'shopping-lists',
   templateUrl: './shopping-lists.page.html',
   styleUrls: ['./shopping-lists.page.scss'],
   providers: [
-    MenuClickListenerService,
     ModalService
   ],
 })
@@ -40,7 +34,6 @@ export class ShoppingListsPage implements OnInit {
     private readonly navCtrl: NavController,
     private readonly route: ActivatedRoute,
     private readonly store: Store<StoreState>,
-    private readonly touchMoveListener: TouchMoveListener,
     readonly modalService: ModalService,
     readonly scalePageService: ScalePageService
   ) { }

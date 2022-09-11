@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { SharedUiModule } from 'src/app/libs/components/ui/shared-ui.module';
-import { SearchIngredientListModule } from '../../lists/search-ingredient-list/search-ingredient-list.module';
+import { SharedUiModule } from '@components/ui';
+import { SearchIngredientListModule } from '@components/lists';
 import { SearchModal } from './search.modal';
 
 

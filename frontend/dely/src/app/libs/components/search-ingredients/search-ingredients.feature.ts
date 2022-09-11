@@ -62,12 +62,10 @@ export class SearchIngredientsFeature implements OnInit, OnDestroy, AfterViewIni
         this.deltaYSum += deltaY;
 
         if (this.deltaYSum > 30 && !this.showHide) {
-          console.log('f')
           this.ngZone.run(() => {
             this.showHide = true;
           });
         } else if (this.deltaYSum < -30 && this.showHide) {
-          console.log('fff')
           this.ngZone.run(() => {
             this.showHide = false;
           });

@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -13,7 +13,21 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
-    "lib": ["es2018", "dom"]
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@store": [
+        "src/app/libs/store/index.ts"
+      ],
+      "@services": [
+        "src/app/libs/services/index.ts"
+      ],
+      "@resolvers": [
+        "src/app/libs/resolvers/index.ts"
+      ],
+      "@components/*": [
+        "src/app/libs/components/*"
+      ],
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

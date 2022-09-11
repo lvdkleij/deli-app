@@ -1,16 +1,11 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { selectList } from 'src/app/libs/store/app.selectors';
+import { selectList, StoreState, lastListPathAction} from '@store';
 import { first } from 'rxjs/operators';
-import { StoreState } from 'src/app/libs/store/app.reducer';
 import { Observable, Subscription } from 'rxjs';
-import { TouchMoveListener } from 'src/app/libs/services/touch-move-listener/touch-move-listener.service';
-import { KeyboardListenerService } from 'src/app/libs/services/keyboard/keyboard-listener.service';
-import { ScrollListenerService } from 'src/app/libs/services/scroll-listener/scroll-listener.service';
-import { ModalService } from 'src/app/libs/components/modals/modal.service';
-import { lastListPathAction } from 'src/app/libs/store/app.actions';
-import { MenuClickListenerService } from 'src/app/libs/components/navigation/top/services/menu/menu.service';
+import {TouchMoveListener, KeyboardListenerService, ScrollListenerService} from '@services';
+import { ModalService } from '@components/modals';
 
 @Component({
   selector: 'app-shopping-list',
@@ -18,7 +13,6 @@ import { MenuClickListenerService } from 'src/app/libs/components/navigation/top
   styleUrls: ['./shopping-list.page.scss'],
   providers: [
     ScrollListenerService,
-    MenuClickListenerService,
     ModalService
   ]
 })
@@ -34,7 +28,6 @@ export class ShoppingListPage implements AfterViewInit, OnDestroy, OnInit {
 
   constructor(
     private readonly scrollListener: ScrollListenerService,
-    readonly menuClickListener: MenuClickListenerService,
     private readonly store: Store<StoreState>,
     private readonly route: ActivatedRoute,
     private readonly touchMoveListener: TouchMoveListener,

@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { SearchIngredientsModule } from '../../search-ingredients/search-ingredients.module';
-import { SharedUiModule } from '../../ui/shared-ui.module';
+import { SearchIngredientsModule } from '@components/search-ingredients';
+import { SharedUiModule } from '@components/ui';
 import { NavigationTopFeature } from './navigation-top.feature';
 
 

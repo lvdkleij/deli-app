@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <ion-app>
       <ion-router-outlet></ion-router-outlet>
-    </ion-app>`
+    </ion-app>`,
+  styleUrls: ['app.component.scss']
 })
 export class AppComponent {}

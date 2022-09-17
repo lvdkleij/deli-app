@@ -1,0 +1,19 @@
+language: generic
+sudo: required
+env:
+  global: 
+    - SHA=$(git rev-parse HEAD)
+services:
+  - docker
+
+before_install:
+  - docker build -f frontend/dely/dockerfiles/Dockerfile.dev -t lvdkleij/deli-app ./frontend/dely
+
+script:
+  - docker run -e CI=true lvdkleij/deli-app npm run test
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: main

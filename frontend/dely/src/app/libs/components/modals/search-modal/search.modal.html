@@ -1,13 +1,15 @@
-<div class="container padding-rem-h--md padding-rem-v--md">
+<div class="searchbar-wrapper padding-rem-h--md padding-rem-v--sm">
+  <div>
+    <input type="text" placeholder="Voeg iets toe aan je lijst..." (click)="onPresentModal()">
+  </div>
+  <span *ngIf="modalService.isPresent$(modals.SEARCH) | async; else addIcon" class="zz" (click)="onDismissModal()">sluiten</span>
+  <ng-template #addIcon>
+    <div class="selected-wrapper right" (click)="onPresentModal()">
+      <ion-icon class="add-icon" name="add-outline"></ion-icon>
+    </div>
+  </ng-template>
+</div>
+<div class="padding-rem-h--md padding-rem-v--md">
   <search-ingredient-list [products]="products$ | async" (product)="category1 = true" ></search-ingredient-list>
 </div>
 
-
-<div class="container2" [@slideLeftAnim2]="category1">
-  <navigation-top>
-    <ion-icon name="chevron-back-outline" style="font-size: 24px;"  (click)="category1 = null" start></ion-icon>
-  </navigation-top>
-  <div class="padding-rem-h--md padding-rem-v--md">
-    <search-ingredient-list  [products]="(products$ | async)" ></search-ingredient-list>
-  </div>
-</div>

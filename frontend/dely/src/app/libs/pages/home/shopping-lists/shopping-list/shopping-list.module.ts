@@ -11,7 +11,7 @@ import { ItemModalModule, SearchModalModule } from '@components/modals';
 import { SharedUiModule } from '@components/ui';
 import { SideMenuFeatureModule } from '@components/side-menu';
 import { ListModule } from '@components/lists';
-import { NavigationTopWithSearchbarComponentModule } from '@components/navigation';
+import { NavigationTopModule, NavigationTopWithSearchbarComponentModule } from '@components/navigation';
 import { HideMainHeaderDirective, HideSearchbarDirective, ScrollTransmitterDirective } from '@directives';
 
 @NgModule({
@@ -25,6 +25,7 @@ import { HideMainHeaderDirective, HideSearchbarDirective, ScrollTransmitterDirec
     SideMenuFeatureModule,
     SharedUiModule,
     ItemModalModule,
+    NavigationTopModule,
     SearchModalModule
   ],
   declarations: [

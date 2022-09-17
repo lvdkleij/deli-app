@@ -1,28 +1,26 @@
 
-.container {
-  height: 100%;
+.searchbar-wrapper {
+  flex: 0 0;
+  background-color: white;
+
+  display: flex;
+  gap: 1.5em;
+  font-size: var(--text-sm);
+  align-items: center;
+  justify-content: space-between;
 }
 
-.container2 {
-  height: 100%;
-  position: absolute;
-  top: -40px;
-  bottom: 0;
-  transform: translateX(100%);
-  background-color: white;
-  box-shadow: 0 1px 2px #0006;
+.container {
+  display: flex;
 }
 
 :host {
   position: absolute;
-  z-index: 0;
-  top: 40px;
+  top: calc(100% - 42px);
   right: 0;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   // transform: translateY(-100%);
   background-color: white;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 20;
+  z-index: 100;
 }

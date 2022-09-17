@@ -18,7 +18,7 @@ export const slideLeftAnim2 = trigger('slideLeftAnim2', [
 
 export const slideLeftAnim3 = trigger('slideLeftAnim3', [
   state('true', style({
-    transform: 'translateY(0)'
+    top: '0'
   })),
-  transition('* <=> *', [animate('100ms linear')])
+  transition('* <=> *', [animate('200ms ease-in-out')])
 ]);

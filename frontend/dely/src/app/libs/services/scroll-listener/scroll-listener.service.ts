@@ -21,20 +21,18 @@ export class ScrollListenerService {
 
   addListener(scrollElement: ElementRef) {
     if (scrollElement) {
-      this.ngZone.runOutsideAngular(() => {
-        this.renderer.listen(
-          scrollElement.nativeElement,
-          'scroll',
-          event => this.listen(event.target.scrollTop));
-      });
-      const scrollRegionHeight = scrollElement.nativeElement.clientHeight;
-      const childHeight: number = Array.from(scrollElement.nativeElement.childNodes).reduce((total: number, x: Element) => {
-        const styles = window.getComputedStyle(x);
-        return total + x.clientHeight + +styles.marginTop.match(/\d/g).join('') + +styles.marginBottom.match(/\d/g).join('');
-      }, 0) as number;
+      this.renderer.listen(
+        scrollElement.nativeElement,
+        'ionScroll',
+        event => this.listen(event.detail.scrollTop));
+      // const scrollRegionHeight = scrollElement.nativeElement.clientHeight;
+      // const childHeight: number = Array.from(scrollElement.nativeElement.childNodes).reduce((total: number, x: Element) => {
+      //   const styles = window.getComputedStyle(x);
+      //   return total + x.clientHeight + +styles.marginTop.match(/\d/g).join('') + +styles.marginBottom.match(/\d/g).join('');
+      // }, 0) as number;
 
-      const styles = window.getComputedStyle(scrollElement.nativeElement);
-      this._scrollRegionHeight$.next(childHeight - scrollRegionHeight + +styles.paddingTop.match(/\d/g).join(''));
+      // const styles = window.getComputedStyle(scrollElement.nativeElement);
+      // this._scrollRegionHeight$.next(childHeight - scrollRegionHeight + +styles.paddingTop.match(/\d/g).join(''));
     }
   }
 

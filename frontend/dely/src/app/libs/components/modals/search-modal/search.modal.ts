@@ -1,9 +1,8 @@
 
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostBinding, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectProducts, StoreState } from '@store';
 import { Observable, Subscription } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
 import { Modals } from '../modal.constants';
 import { Modal, ModalService } from '../modal.service';
 import { slideLeftAnim, slideLeftAnim2, slideLeftAnim3 } from './search.animations';
@@ -17,7 +16,7 @@ import { slideLeftAnim, slideLeftAnim2, slideLeftAnim3 } from './search.animatio
 })
 export class SearchModal implements OnInit {
 
-  @HostBinding('@slideLeftAnim') get slideIn() { return this.value; };
+  @HostBinding('@slideLeftAnim3') get slideIn() { return this.value; };
 
   category1;
   modals = Modals;
@@ -36,6 +35,16 @@ export class SearchModal implements OnInit {
   ngOnInit(): void {
     this.subscription = this.modalService.isPresent$(Modals.SEARCH).subscribe((value) => this.value = value);
     this.products$ = this.store.select(selectProducts);
+  }
+
+  onPresentModal() {
+    this.modalService.present(Modals.SEARCH);
+  }
+
+
+  onDismissModal() {
+    this.modalService.dismiss(Modals.SEARCH);
+
   }
 
 }

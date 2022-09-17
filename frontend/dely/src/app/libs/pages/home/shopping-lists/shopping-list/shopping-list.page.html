@@ -1,25 +1,25 @@
 
-<navigation-top-with-searchbar-component [data]="{ title: 'ffasfasfasdfadfasf'}">
+<navigation-top [data]="{ title: 'ffasfasfasdfadfasf'}">
   <span start routerLink="/shopping-lists">lists</span>
   <span end>settings</span>
-</navigation-top-with-searchbar-component>
-
+</navigation-top>
 <ion-content
-  [fullscreen]="true"
-  [scrollEvents]="false"
+  [fullscreen]="false"
+  [scrollY]="false"
   >
+
   <div
     *ngIf="data | async as listData" class="searchbar-padding"
-    class="scroll-container"
+    ngClass="scroll-container"
     [ngStyle]="{ 'padding-bottom': (keyboardListener.keyboardHeight$ | async) + 'px'}"
-    scrollTransmitter
   >
+
     <h1 class="padding-rem-h--md padding-b--lg">{{ listData.name }}</h1>
     <list-feature [data]="listData.items"></list-feature>
   </div>
+  <search-modal></search-modal>
 
 </ion-content>
 <item-modal></item-modal>
-<search-modal></search-modal>
 
 <!-- <search-ingredients class="search-ingredients"></search-ingredients> -->

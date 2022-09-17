@@ -1,6 +1,8 @@
 
-<ion-header #header>
-  <ion-toolbar class="toolbar padding-rem-h--sm">
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  </ion-toolbar>
+  <ion-toolbar toolBar class="toolbar padding-rem-h--md padding-rem-v--sm">
     <ion-buttons slot="start">
       <ng-content select="[start]"></ng-content>
     </ion-buttons>
@@ -11,5 +13,3 @@
   </ion-toolbar>
   <ng-content select="[subheader]"></ng-content>
 </ion-header>
-
-

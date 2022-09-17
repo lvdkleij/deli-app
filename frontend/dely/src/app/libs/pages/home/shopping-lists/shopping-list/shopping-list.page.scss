@@ -4,7 +4,7 @@
   display: block;
   overflow-y: scroll;
   height: 100%;
-  // padding-top: 56px;
+  padding-top: 82px;
 
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
@@ -22,4 +22,20 @@ search-ingredients {
 
 h1 {
   font-size: var(--text-md);
+}
+navigation-top-with-searchbar-component {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+ion-content {
+  // transition: all 200ms;
+  // --background:rgb(250, 250, 250);
+}
+
+:host ::ng-deep {
+  padding-top: 0;
 }

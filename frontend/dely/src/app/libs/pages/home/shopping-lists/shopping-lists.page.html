@@ -1,9 +1,11 @@
-<navigation-top [data]="{ title: ''}">
+<navigation-top [data]="{ title: 'Shopping lists'}">
   <ion-icon name="chevron-back-outline" start style="font-size: 24px;" *ngIf="activeShoppingList$ | async as activeShoppingList" [routerLink]="activeShoppingList"></ion-icon>
   <span end>settings</span>
 </navigation-top>
 
-<ion-content [scrollEvents]="true" [ngStyle]="{ 'scale': (scalePageService.currentPageScale$ | async).scale, 'filter': (scalePageService.currentPageScale$ | async).blur }">
+<ion-content
+  [scrollEvents]="true"
+  [ngStyle]="{ 'scale': (scalePageService.currentPageScale$ | async).scale, 'filter': (scalePageService.currentPageScale$ | async).blur }">
   <shopping-lists-component [shoppingListsData]="shoppingListsData$ | async"></shopping-lists-component>
 
   <button class="add-list-button" (click)="onCreateList()">

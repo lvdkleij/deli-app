@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { selectList, StoreState, setActiveShoppingList} from '@store';
 import { first } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
-import { KeyboardListenerService } from '@services';
+import { KeyboardListenerService, ScrollListenerService } from '@services';
 import { ModalService } from '@components/modals';
 
 @Component({
@@ -12,15 +12,14 @@ import { ModalService } from '@components/modals';
   templateUrl: './shopping-list.page.html',
   styleUrls: ['./shopping-list.page.scss'],
   providers: [
+    ScrollListenerService,
     ModalService
   ]
 })
 export class ShoppingListPage implements AfterViewInit, OnDestroy, OnInit {
 
-  toolbar;
-
   data: Observable<any>;
-  touchMoveSubscription: Subscription;
+  scrollSubscription: Subscription;
   touchEvent$;
 
   viewWillLeave;
@@ -29,7 +28,7 @@ export class ShoppingListPage implements AfterViewInit, OnDestroy, OnInit {
   constructor(
     private readonly store: Store<StoreState>,
     private readonly route: ActivatedRoute,
-    readonly keyboardListener: KeyboardListenerService
+    readonly keyboardListener: KeyboardListenerService,
   ) { }
 
   ngOnInit(): void {

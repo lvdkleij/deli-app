@@ -1,9 +1,7 @@
 
 
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef,
-  EventEmitter, Input, OnDestroy, Output, Renderer2, ViewChild } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { Subscription } from 'rxjs';
+import { Component, EventEmitter, Input, Output, Renderer2, ViewChild } from '@angular/core';
+import { NavController, Platform } from '@ionic/angular';
 import { OptionsClickListenerService } from './services/options.service';
 
 @Component({
@@ -11,88 +9,26 @@ import { OptionsClickListenerService } from './services/options.service';
   templateUrl: './navigation-top.feature.html',
   styleUrls: ['./navigation-top.feature.scss'],
 })
-export class NavigationTopFeature implements AfterViewInit, OnDestroy {
-  @Output() toolbar = new EventEmitter<any>();
-  @ViewChild('header') set _toolbar(value) {
-    this.toolbar.emit(value);
-  };
+export class NavigationTopFeature {
 
   @Input() data: { title?: string } = {};
 
-  touchMoveSubscription: Subscription;
-
-  distanceY = 0;
-  startY = 0;
-  showNavBar = true;
-
-  menuClickSubscription;
-
-  oldPos = 0;
-  shade = 0;
-  pos = 0;
-  hasHitTop = 1;
-
-  ticking = false;
-  menuClicked = false;
-
-  scrollRegionHeight: number;
-  subHeaderHeight: number;
-
-  prevY = null;
-
+  isIosApp = false;
 
   constructor(
     readonly optionsClickListener: OptionsClickListenerService,
     private readonly navCtrl: NavController,
-    private renderer: Renderer2,
-    private readonly elementRef: ElementRef,
-    private readonly changeDetectionRef: ChangeDetectorRef
-  ) { }
+    private readonly platform: Platform
+  ) {
+    let isIos = false;
+    let isApp = false;
+    platform.platforms().forEach(x => {
+      isIos = x === 'ios' ? true : isIos;
+      isApp = x === 'capacitor' ? true : isApp;
+    });
 
-
-  ionViewWillLeave() {
+    this.isIosApp = isApp && isIos;
   }
-
-  ngAfterViewInit(): void {
-    // this.scrollSubscription = this.scrollListener.scrollEvent$.subscribe(event => this.logScrolling(event));
-    // this.menuClickSubscription = this.menuClickListener.listen$.subscribe(event => this.menuClicked = event);
-    // this.scrollRegionHeightSubcription = this.scrollListener.scrollRegionHeight$.subscribe(event => this.scrollRegionHeight = event);
-    // setTimeout(() => {
-    //   this.subHeaderHeight = this.header.nativeElement.clientHeight;
-    // }, 1);
-  }
-
-  // logScrolling(newPos) {
-  //   try {
-  //     if (this.oldPos > 0 && newPos >= 0) {
-  //       const deltaY = newPos - this.oldPos;
-  //       this.pos = this.minMax(this.pos + deltaY, 0, this.subHeaderHeight);
-  //     }
-
-  //     if (this.pos === this.subHeaderHeight) {
-  //       this.hasHitTop = 0;
-  //     }
-
-  //     if (this.oldPos <= 0) {
-  //       this.hasHitTop = 1;
-  //     }
-
-  //     this.shade = this.minMax(newPos/100, 0, 0.108);
-
-  //     if (!this.ticking) {
-  //       requestAnimationFrame(() => {
-  //         this.ticking = false;
-  //         this.renderer.setStyle(this.header.nativeElement, 'bottom', `${this.pos - this.subHeaderHeight}px`);
-  //         this.renderer.setStyle(this.header.nativeElement, 'box-shadow', `0 2px 2px rgba(0 0 0 / ${this.shade * (1 - this.hasHitTop)})`);
-  //         this.renderer.setStyle(this.toolbar.nativeElement, 'box-shadow', `0 2px 2px rgba(0 0 0 / ${this.shade * this.hasHitTop})`);
-  //       });
-  //     }
-
-  //     this.oldPos = newPos;
-  //     this.ticking = true;
-  //   }
-  //   catch {}
-  // }
 
   minMax(value, min, max) {
     return Math.max(Math.min(value, max), min);
@@ -100,13 +36,6 @@ export class NavigationTopFeature implements AfterViewInit, OnDestroy {
 
   onShowMenu() {
     this.navCtrl.navigateBack('/shopping-lists');
-  }
-
-  onCloseMenu() {
-  }
-
-  ngOnDestroy() {
-    // this.menuClickSubscription.unsubscribe();
   }
 
   onShowOptions() {

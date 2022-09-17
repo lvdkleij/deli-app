@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { SharedUiModule } from '@components/ui';
 import { SearchIngredientListModule } from '@components/lists';
 import { SearchModal } from './search.modal';
+import { NavigationTopModule } from '@components/navigation';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SearchModal } from './search.modal';
     RouterModule,
     IonicModule,
     SharedUiModule,
-    SearchIngredientListModule
+    SearchIngredientListModule,
+    NavigationTopModule
   ],
   exports: [
     SearchModal

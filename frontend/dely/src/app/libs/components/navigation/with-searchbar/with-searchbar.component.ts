@@ -1,61 +1,54 @@
-import { Component, EventEmitter, Input, Output, Renderer2 } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Modals, ModalService } from '@components/modals';
 import { DomController } from '@ionic/angular';
-
+import { ScrollListenerService } from '@services';
+import { Subscription } from 'rxjs';
+import { hideToolbarAnim } from './animations';
 
 @Component({
   selector: 'navigation-top-with-searchbar-component',
   templateUrl: 'with-searchbar.component.html',
-  styleUrls: ['with-searchbar.component.scss']
+  styleUrls: ['with-searchbar.component.scss'],
+  animations: [hideToolbarAnim]
 })
-export class NavigationTopWithSearchbarComponent {
-
-  modals = Modals;
-  @Output() toolbar = new EventEmitter<any>();
+export class NavigationTopWithSearchbarComponent implements OnInit, OnDestroy {
+  @ViewChild('navBar') navBar;
   @Input() data: { title?: string } = {};
 
-  header;
+  _hideToolbar = false;
+  get hideToolbar() {
+    return this._hideToolbar;
+  }
+  @Input() set hideToolbar(value: boolean) { this._hideToolbar = value; }
 
-  mainToolbarHeight = 0;
+  scrollSubscription: Subscription;
+  modals = Modals;
+
+  toolbarHeight = 0;
 
   constructor(
     readonly modalService: ModalService,
-    private readonly domCtrl: DomController,
-    private readonly renderer: Renderer2
   ) {}
 
+  ngOnInit(): void {
+  }
 
-    onPresentModal() {
-      //
-      this.domCtrl.read(() => {
-        this.mainToolbarHeight = this.header.el.firstElementChild.clientHeight;
-        const newPosition = -this.mainToolbarHeight;
+  ngOnDestroy(): void {
+  }
 
-        this.domCtrl.write(() => {
-          this.renderer.setStyle(this.header.el, 'top', `${newPosition}px`);
+  onPresentModal() {
+    this.toolbarHeight = 42;
+    this.hideToolbar= true;
 
-          // setTimeout(() => {
-          //   this.renderer.setStyle(this.header.el, 'transition', 'none');
-          // }, 200);
-        });
-      });
-      this.modalService.present(Modals.SEARCH);
-    }
+    this.modalService.present(Modals.SEARCH);
+  }
 
 
-    onDismissModal() {
-      this.modalService.dismiss(Modals.SEARCH);
+  onDismissModal() {
+    this.hideToolbar= false;
+    this.modalService.dismiss(Modals.SEARCH);
 
-      this.domCtrl.write(() => {
-        this.renderer.setStyle(this.header.el, 'top', '0');
-      });
-    }
-
-
-    getMainToolbar($event) {
-      this.header = $event;
-      this.toolbar.emit($event);
-    }
+  }
 
 
 }

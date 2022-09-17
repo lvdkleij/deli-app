@@ -3,6 +3,15 @@ h1 {
   font-size: var(--text-sm);
 }
 
+ion-header {
+  background-color: white;
+}
+
+ion-toolbar {
+  --min-height: 0;
+  --ion-toolbar-background-color: transparent;
+}
+
 ion-buttons {
   z-index: 10;
 }
@@ -19,20 +28,13 @@ ion-buttons {
   transform: translate(-50%, 50%);
 }
 
-.hotfix.header-md::after {
-  /* Removes the toolbar shadow. */
-  background: none;
-}
-
-::ng-deep ion-header {
+:host ::ng-deep ion-header {
   background-color: transparent;
   position: relative;
 }
 
-.header {
-  position: absolute;
-  background-color: white;
-  z-index: -1;
-  width: 100%;
-}
 
+:host {
+  position: relative;
+
+}

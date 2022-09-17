@@ -3,6 +3,11 @@
 </div>
 
 
-<div class="container2 padding-rem-h--md padding-rem-v--md" [@slideLeftAnim2]="category1">
-  <search-ingredient-list [products]="(products$ | async)" ></search-ingredient-list>
+<div class="container2" [@slideLeftAnim2]="category1">
+  <navigation-top>
+    <ion-icon name="chevron-back-outline" style="font-size: 24px;"  (click)="category1 = null" start></ion-icon>
+  </navigation-top>
+  <div class="padding-rem-h--md padding-rem-v--md">
+    <search-ingredient-list  [products]="(products$ | async)" ></search-ingredient-list>
+  </div>
 </div>

@@ -3,7 +3,7 @@
 export const mockItemListsData = [
   {
     name: 'list1',
-    background: '',
+    background: 'white',
     sharedWith: [],
     items: [
       {
@@ -25,7 +25,7 @@ export const mockItemListsData = [
   },
   {
     name: 'list2',
-    background: '',
+    background: 'white',
     sharedWith: [],
     items: [
       {

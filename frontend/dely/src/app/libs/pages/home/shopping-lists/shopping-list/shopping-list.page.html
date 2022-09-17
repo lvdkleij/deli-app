@@ -1,13 +1,23 @@
-<navigation-top-with-searchbar-component [data]="{ title: 'ffasfasfasdfadfasf'}" (toolbar)="this.toolbar = $event">
+
+<navigation-top-with-searchbar-component [data]="{ title: 'ffasfasfasdfadfasf'}">
   <span start routerLink="/shopping-lists">lists</span>
   <span end>settings</span>
 </navigation-top-with-searchbar-component>
 
-<ion-content [fullscreen]="true" scrollEvents="true" [hideMainHeader]="this.toolbar">
-  <div *ngIf="data | async as listData" [ngStyle]="{ 'padding-bottom': (keyboardListener.keyboardHeight$ | async) + 'px'}">
+<ion-content
+  [fullscreen]="true"
+  [scrollEvents]="false"
+  >
+  <div
+    *ngIf="data | async as listData" class="searchbar-padding"
+    class="scroll-container"
+    [ngStyle]="{ 'padding-bottom': (keyboardListener.keyboardHeight$ | async) + 'px'}"
+    scrollTransmitter
+  >
     <h1 class="padding-rem-h--md padding-b--lg">{{ listData.name }}</h1>
     <list-feature [data]="listData.items"></list-feature>
   </div>
+
 </ion-content>
 <item-modal></item-modal>
 <search-modal></search-modal>

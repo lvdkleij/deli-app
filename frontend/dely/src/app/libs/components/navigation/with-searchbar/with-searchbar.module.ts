@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { NavigationTopModule } from '@components/navigation';
 import { NavigationTopWithSearchbarComponent } from './with-searchbar.component';
 import { SharedUiModule } from '@components/ui';
+import { WithSearchBarDirective } from './with-searchbar.directive';
 
 
 @NgModule({
@@ -14,6 +15,6 @@ import { SharedUiModule } from '@components/ui';
     SharedUiModule
   ],
   exports: [NavigationTopWithSearchbarComponent],
-  declarations: [NavigationTopWithSearchbarComponent]
+  declarations: [NavigationTopWithSearchbarComponent, WithSearchBarDirective]
 })
 export class NavigationTopWithSearchbarComponentModule {}

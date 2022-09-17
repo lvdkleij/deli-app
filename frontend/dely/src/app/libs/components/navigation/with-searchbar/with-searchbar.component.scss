@@ -7,6 +7,9 @@
   align-items: center;
 }
 
+input {
+  padding: 0;
+}
 .zz {
   margin-left: auto;
 }
@@ -17,8 +20,8 @@
   border-radius: 100%;
 
   border: 1px solid black;
-  height: 1.5em;
-  width: 1.5em;
+  height: 1em;
+  width: 1em;
 
   display: flex;
   align-items: center;

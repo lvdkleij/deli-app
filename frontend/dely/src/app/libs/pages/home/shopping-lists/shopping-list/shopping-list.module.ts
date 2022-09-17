@@ -12,7 +12,7 @@ import { SharedUiModule } from '@components/ui';
 import { SideMenuFeatureModule } from '@components/side-menu';
 import { ListModule } from '@components/lists';
 import { NavigationTopWithSearchbarComponentModule } from '@components/navigation';
-import { HideMainHeaderDirective } from '@directives';
+import { HideMainHeaderDirective, HideSearchbarDirective, ScrollTransmitterDirective } from '@directives';
 
 @NgModule({
   imports: [
@@ -27,6 +27,11 @@ import { HideMainHeaderDirective } from '@directives';
     ItemModalModule,
     SearchModalModule
   ],
-  declarations: [ShoppingListPage, HideMainHeaderDirective]
+  declarations: [
+    ShoppingListPage,
+    HideMainHeaderDirective,
+    HideSearchbarDirective,
+    ScrollTransmitterDirective
+  ]
 })
 export class ShoppingListPageModule {}

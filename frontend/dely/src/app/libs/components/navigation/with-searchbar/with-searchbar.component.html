@@ -1,11 +1,13 @@
-<navigation-top [data]="data" (toolbar)="getMainToolbar($event)">
+<navigation-top #navBar withSearchBar [data]="data" [@hideToolbarAnim]="{ value: hideToolbar && toolbarHeight > 0, params: {toolbarHeight}}">
   <ng-content select="[start]" start></ng-content>
   <ng-content select="[end]" end></ng-content>
-  <div class="searchbar-wrapper padding-rem-h--xl padding-rem-v--sm" subheader>
+  <div class="searchbar-wrapper padding-rem-h--md padding-rem-v--sm" subheader #searchbar >
     <div class="selected-wrapper right" (click)="onPresentModal()">
       <ion-icon class="add-icon" name="add-outline"></ion-icon>
     </div>
-    <ion-input type="text" placeholder="Voeg iets toe aan je lijst..." (click)="onPresentModal()"></ion-input>
+    <div>
+      <input type="text" placeholder="Voeg iets toe aan je lijst..." (click)="onPresentModal()">
+    </div>
     <span *ngIf="modalService.isPresent$(modals.SEARCH) | async" class="zz" (click)="onDismissModal()">sluiten</span>
   </div>
 </navigation-top>

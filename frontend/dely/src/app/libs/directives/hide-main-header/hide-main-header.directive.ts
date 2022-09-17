@@ -16,9 +16,9 @@ export class HideMainHeaderDirective  {
   ) {}
 
   @HostListener('ionScroll', ['$event']) onContentScroll($event) {
-    if (this.mainToolbarHeight !== this.header.el.firstElementChild.clientHeight) {
+    if (this.mainToolbarHeight !== this.header.el.children[1].clientHeight) {
       this.domCtrl.read(() => {
-        this.mainToolbarHeight = this.header.el.firstElementChild.clientHeight;
+        this.mainToolbarHeight = this.header.el.children[1].clientHeight;
       });
     }
 
@@ -27,9 +27,17 @@ export class HideMainHeaderDirective  {
     if (newPosition < -this.mainToolbarHeight) {
       newPosition = -this.mainToolbarHeight;
     }
+    if (newPosition > 0) {
+      newPosition = 0;
+    }
 
+    const relativePosition = (this.mainToolbarHeight + 2 * newPosition) / this.mainToolbarHeight;
     this.domCtrl.write(() => {
-      this.renderer.setStyle(this.header.el, 'top', `${newPosition}px`);
+      // this.renderer.setStyle(this.header.el, 'top', `${newPosition}px`);
+      // this.renderer.setStyle(this.header.el.children[1], 'color',
+      // `rgba(0,0,0, ${relativePosition}`);
+      this.renderer.setStyle(this.header.el.children[1],
+        'box-shadow', `0 2px 4px -2px rgba(var(--ion-color-dark-rgb), ${0.4 * ( 1 - relativePosition)})`);
     });
   }
 

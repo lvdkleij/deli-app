@@ -6,14 +6,14 @@ import { Observable, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { Modals } from '../modal.constants';
 import { Modal, ModalService } from '../modal.service';
-import { slideLeftAnim, slideLeftAnim2 } from './search.animations';
+import { slideLeftAnim, slideLeftAnim2, slideLeftAnim3 } from './search.animations';
 
 
 @Component({
   selector: 'search-modal',
   templateUrl: 'search.modal.html',
   styleUrls: ['search.modal.scss'],
-  animations: [slideLeftAnim, slideLeftAnim2]
+  animations: [slideLeftAnim, slideLeftAnim2, slideLeftAnim3]
 })
 export class SearchModal implements OnInit {
 

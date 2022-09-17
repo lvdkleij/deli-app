@@ -5,5 +5,5 @@ export const slideLeftAnim = trigger('slideLeftAnim', [
   state('true', style({
     transform: 'translateX(0)'
   })),
-  transition('* <=> *', [animate('300ms linear')])
+  transition('* <=> *', [animate('300ms ease-in-out')])
 ]);

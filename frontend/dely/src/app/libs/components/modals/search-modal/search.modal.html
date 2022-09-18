@@ -18,3 +18,5 @@
   <search-ingredient-list [products]="products$ | async" (product)="category1 = true" ></search-ingredient-list>
 </div>
 
+
+<div class="shadow" *ngIf="modalService.isPresent$(modals.SEARCH) | async"></div>

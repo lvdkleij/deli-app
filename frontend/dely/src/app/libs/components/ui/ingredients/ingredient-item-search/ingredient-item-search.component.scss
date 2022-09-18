@@ -24,13 +24,21 @@ h3 {
   width: 100%;
   display: inline-block;
   font-size: var(--text-sm);
-  height: 2.4em;
   max-height: 2.4em;
 
   display: -webkit-box;
   -webkit-box-orient: vertical;
 
-  text-overflow: ellipsis;
   overflow: hidden;
   -webkit-line-clamp: 2;
+}
+
+.text-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.4em;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

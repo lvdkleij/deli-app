@@ -2,7 +2,7 @@
 
 export const mockProductsData = [
   {
-    name: 'Aardappel, groenten en fruit',
+    name: 'Aardappel, groenten en fruit asfsafsaf asfasfsafafsfsa',
     icon: '',
     products: [
       {

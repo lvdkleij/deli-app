@@ -2,7 +2,8 @@
 .searchbar-wrapper {
   flex: 0 0;
   background-color: white;
-
+  position: relative;
+  z-index: 1000;
   display: flex;
   gap: 1.5em;
   font-size: var(--text-sm);
@@ -48,17 +49,31 @@ input {
   font-size: 1.5em;
 }
 
+.scroll-container {
+  position: relative;
+  display: block;
+  overflow-y: scroll;
+  height: 100%;
+  padding-bottom: 80px;
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+}
+
 
 .shadow {
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-
   box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.2);
 }
-
-
 
 :host {
   position: absolute;

@@ -14,9 +14,8 @@
     </div>
   </ng-template>
 </div>
-<div class="padding-rem-h--md padding-rem-v--md">
+<div class="scroll-container padding-rem-h--md padding-rem-v--md">
   <search-ingredient-list [products]="products$ | async" (product)="category1 = true" ></search-ingredient-list>
 </div>
 
-
-<div class="shadow" *ngIf="modalService.isPresent$(modals.SEARCH) | async"></div>
+<div class="shadow" *ngIf="showBottomShadow"></div>

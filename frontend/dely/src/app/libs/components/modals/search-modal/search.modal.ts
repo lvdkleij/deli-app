@@ -20,6 +20,7 @@ export class SearchModal implements OnInit {
   @HostBinding('@slideLeftAnim3') get slideIn() { return this.value; };
   @ViewChild('searchInputElement', {read: ElementRef}) searchInputElement: ElementRef;
 
+  showBottomShadow = false;
   category1;
   modals = Modals;
   isPresent$: Observable<Modal>;
@@ -47,6 +48,7 @@ export class SearchModal implements OnInit {
     this.domCtrl.write(() => {
       this.renderer.setAttribute(this.searchInputElement.nativeElement, 'placeholder', 'Zoek een product...');
     });
+    this.showBottomShadow = true;
     setTimeout(() => {
       this.searchInputElement.nativeElement.click();
       this.searchInputElement.nativeElement.focus();
@@ -56,7 +58,12 @@ export class SearchModal implements OnInit {
 
   onDismissModal() {
     this.modalService.dismiss(Modals.SEARCH);
-
+    this.domCtrl.write(() => {
+      this.renderer.setAttribute(this.searchInputElement.nativeElement, 'placeholder', 'Voeg iets toe aan je lijst...');
+    });
+    setTimeout(() => {
+      this.showBottomShadow = false;
+    }, SLIDE_ANIMATION_TIME);
   }
 
 }

@@ -2,15 +2,7 @@
 
 
 <div class="container">
-
   <div *ngFor="let category of products">
     <ingredient-item-search [data]="{ name: category.name, icon: ''}" (click)="product.emit(category.name)"></ingredient-item-search>
-
-<!--
-    <div class="items" *ngIf="lala[i]">
-      <ingredient-item-search [data]="{ name, icon: '' }" (details)="onProductClick($event)" *ngFor="let name of ['kipfilet','runderlap','biefstuk','sukadelap','kalkoenfilet']"></ingredient-item-search>
-    </div> -->
-
   </div>
-
 </div>

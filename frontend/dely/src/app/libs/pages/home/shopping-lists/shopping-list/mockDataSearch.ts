@@ -363,5 +363,342 @@ export const mockProductsData = [
       }
     ]
   },
+  {
+    name: 'Snoep, koek, chips en chocolade',
+    icon: '',
+    products: [
+      {
+        name: 'zuivel',
+        icon: '',
+        products: [
+          {
+            name: 'Kruimige aardappel',
+            icon: ''
+          },
+          {
+            name: 'Krieltjes',
+            icon: ''
+          },
+          {
+            name: 'Aardappelschijfjes',
+            icon: ''
+          },
+          {
+            name: 'Zoete aardappel',
+            icon: ''
+          },
+          {
+            name: 'Vastkokende aardappel',
+            icon: ''
+          },
+        ]
+      },
+      {
+        name: 'plantaardig',
+        icon: '',
+        products: [
+          {
+            name: 'Kruimige aardappel',
+            icon: ''
+          },
+          {
+            name: 'Krieltjes',
+            icon: ''
+          },
+          {
+            name: 'Aardappelschijfjes',
+            icon: ''
+          },
+          {
+            name: 'Zoete aardappel',
+            icon: ''
+          },
+          {
+            name: 'Vastkokende aardappel',
+            icon: ''
+          },
+        ]
+      },
+      {
+        name: 'eieren',
+        icon: '',
+        products: [
+          {
+            name: 'Kruimige aardappel',
+            icon: ''
+          },
+          {
+            name: 'Krieltjes',
+            icon: ''
+          },
+          {
+            name: 'Aardappelschijfjes',
+            icon: ''
+          },
+          {
+            name: 'Zoete aardappel',
+            icon: ''
+          },
+          {
+            name: 'Vastkokende aardappel',
+            icon: ''
+          },
+        ]
+      }
+    ]
+  },
+  {
+    name: 'Frisdrank, sappen, koffie en thee',
+    icon: '',
+    products: [
+      {
+        name: 'zuivel',
+        icon: '',
+        products: [
+          {
+            name: 'Kruimige aardappel',
+            icon: ''
+          },
+          {
+            name: 'Krieltjes',
+            icon: ''
+          },
+          {
+            name: 'Aardappelschijfjes',
+            icon: ''
+          },
+          {
+            name: 'Zoete aardappel',
+            icon: ''
+          },
+          {
+            name: 'Vastkokende aardappel',
+            icon: ''
+          },
+        ]
+      },
+      {
+        name: 'plantaardig',
+        icon: '',
+        products: [
+          {
+            name: 'Kruimige aardappel',
+            icon: ''
+          },
+          {
+            name: 'Krieltjes',
+            icon: ''
+          },
+          {
+            name: 'Aardappelschijfjes',
+            icon: ''
+          },
+          {
+            name: 'Zoete aardappel',
+            icon: ''
+          },
+          {
+            name: 'Vastkokende aardappel',
+            icon: ''
+          },
+        ]
+      },
+      {
+        name: 'eieren',
+        icon: '',
+        products: [
+          {
+            name: 'Kruimige aardappel',
+            icon: ''
+          },
+          {
+            name: 'Krieltjes',
+            icon: ''
+          },
+          {
+            name: 'Aardappelschijfjes',
+            icon: ''
+          },
+          {
+            name: 'Zoete aardappel',
+            icon: ''
+          },
+          {
+            name: 'Vastkokende aardappel',
+            icon: ''
+          },
+        ]
+      }
+    ]
+  },
+  {
+    name: 'Onbijtgranen en beleg',
+    icon: '',
+    products: [
+      {
+        name: 'zuivel',
+        icon: '',
+        products: [
+          {
+            name: 'Kruimige aardappel',
+            icon: ''
+          },
+          {
+            name: 'Krieltjes',
+            icon: ''
+          },
+          {
+            name: 'Aardappelschijfjes',
+            icon: ''
+          },
+          {
+            name: 'Zoete aardappel',
+            icon: ''
+          },
+          {
+            name: 'Vastkokende aardappel',
+            icon: ''
+          },
+        ]
+      },
+      {
+        name: 'plantaardig',
+        icon: '',
+        products: [
+          {
+            name: 'Kruimige aardappel',
+            icon: ''
+          },
+          {
+            name: 'Krieltjes',
+            icon: ''
+          },
+          {
+            name: 'Aardappelschijfjes',
+            icon: ''
+          },
+          {
+            name: 'Zoete aardappel',
+            icon: ''
+          },
+          {
+            name: 'Vastkokende aardappel',
+            icon: ''
+          },
+        ]
+      },
+      {
+        name: 'eieren',
+        icon: '',
+        products: [
+          {
+            name: 'Kruimige aardappel',
+            icon: ''
+          },
+          {
+            name: 'Krieltjes',
+            icon: ''
+          },
+          {
+            name: 'Aardappelschijfjes',
+            icon: ''
+          },
+          {
+            name: 'Zoete aardappel',
+            icon: ''
+          },
+          {
+            name: 'Vastkokende aardappel',
+            icon: ''
+          },
+        ]
+      }
+    ]
+  },
+  {
+    name: 'Salades, pizza en maaltijden',
+    icon: '',
+    products: [
+      {
+        name: 'zuivel',
+        icon: '',
+        products: [
+          {
+            name: 'Kruimige aardappel',
+            icon: ''
+          },
+          {
+            name: 'Krieltjes',
+            icon: ''
+          },
+          {
+            name: 'Aardappelschijfjes',
+            icon: ''
+          },
+          {
+            name: 'Zoete aardappel',
+            icon: ''
+          },
+          {
+            name: 'Vastkokende aardappel',
+            icon: ''
+          },
+        ]
+      },
+      {
+        name: 'plantaardig',
+        icon: '',
+        products: [
+          {
+            name: 'Kruimige aardappel',
+            icon: ''
+          },
+          {
+            name: 'Krieltjes',
+            icon: ''
+          },
+          {
+            name: 'Aardappelschijfjes',
+            icon: ''
+          },
+          {
+            name: 'Zoete aardappel',
+            icon: ''
+          },
+          {
+            name: 'Vastkokende aardappel',
+            icon: ''
+          },
+        ]
+      },
+      {
+        name: 'eieren',
+        icon: '',
+        products: [
+          {
+            name: 'Kruimige aardappel',
+            icon: ''
+          },
+          {
+            name: 'Krieltjes',
+            icon: ''
+          },
+          {
+            name: 'Aardappelschijfjes',
+            icon: ''
+          },
+          {
+            name: 'Zoete aardappel',
+            icon: ''
+          },
+          {
+            name: 'Vastkokende aardappel',
+            icon: ''
+          },
+        ]
+      }
+    ]
+  },
+
 ];
 

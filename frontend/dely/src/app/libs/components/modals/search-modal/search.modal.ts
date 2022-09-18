@@ -41,6 +41,7 @@ export class SearchModal implements OnInit {
   onPresentModal() {
     this.modalService.present(Modals.SEARCH);
     setTimeout(() => {
+      this.searchInputElement.nativeElement.click();
       this.searchInputElement.nativeElement.focus();
     }, SLIDE_ANIMATION_TIME);
   }

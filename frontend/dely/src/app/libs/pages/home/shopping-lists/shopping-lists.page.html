@@ -4,13 +4,15 @@
 </navigation-top>
 
 <ion-content
-  [scrollEvents]="true"
+  [scrollEvents]="false"
+  [scrollY]="false"
   [ngStyle]="{ 'scale': (scalePageService.currentPageScale$ | async).scale, 'filter': (scalePageService.currentPageScale$ | async).blur }">
   <shopping-lists-component [shoppingListsData]="shoppingListsData$ | async"></shopping-lists-component>
 
   <button class="add-list-button" (click)="onCreateList()">
     <ion-icon class="add-icon" name="add-outline"></ion-icon>
   </button>
+  <div class="shadow"></div>
 </ion-content>
 
 <create-shopping-list-modal></create-shopping-list-modal>

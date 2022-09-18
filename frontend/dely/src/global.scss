@@ -88,11 +88,27 @@ input {
   --text-xxxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
 
   // colors
-  --color-text:  rgb(212, 93, 42);
+  --color-primary-text:  rgb(214, 50, 0);
   --color-text-heading: var(--black);
   --color-text-subtle: var(--gray-6);
   --color-link: var(--color-primary);
   --color-link-visited: var(--color-primary-dark);
+}
+
+
+.primary-text-color {
+  color: var(--color-primary-text);
+}
+
+.text-size--sm {
+  font-size: var(--text-sm);
+}
+.text-size--md {
+  font-size: var(--text-md);
+}
+
+.text-weight--bold {
+  font-weight: bold;
 }
 
 $units: (

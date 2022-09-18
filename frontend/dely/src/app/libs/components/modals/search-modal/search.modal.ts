@@ -1,5 +1,6 @@
 
-import { AfterViewInit, Component, ElementRef, HostBinding, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostBinding, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { DomController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
 import { selectProducts, StoreState } from '@store';
 import { Observable, Subscription } from 'rxjs';
@@ -30,7 +31,9 @@ export class SearchModal implements OnInit {
 
   constructor(
     public modalService: ModalService,
-    private readonly store: Store<StoreState>
+    private readonly store: Store<StoreState>,
+    private readonly renderer: Renderer2,
+    private readonly domCtrl: DomController
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +43,10 @@ export class SearchModal implements OnInit {
 
   onPresentModal() {
     this.modalService.present(Modals.SEARCH);
+    //https://stackoverflow.com/questions/72433442/displaying-keyboard-in-safari-ios-after-focus-on-input-after-page-loads-modal-s
+    this.domCtrl.write(() => {
+      this.renderer.setAttribute(this.searchInputElement.nativeElement, 'placeholder', 'Zoek een product...');
+    });
     setTimeout(() => {
       this.searchInputElement.nativeElement.click();
       this.searchInputElement.nativeElement.focus();

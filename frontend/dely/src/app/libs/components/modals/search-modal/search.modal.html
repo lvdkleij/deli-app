@@ -5,7 +5,9 @@
       class="padding-rem-h--sm padding-rem-v--xs"
       #searchInputElement type="text" placeholder="Voeg iets toe aan je lijst...">
   </div>
-  <span *ngIf="modalService.isPresent$(modals.SEARCH) | async; else addIcon" class="zz" (click)="onDismissModal()">sluiten</span>
+  <span
+    *ngIf="modalService.isPresent$(modals.SEARCH) | async; else addIcon"
+    class="primary-text-color" (click)="onDismissModal()">sluiten</span>
   <ng-template #addIcon>
     <div class="selected-wrapper right" (click)="onPresentModal()">
       <ion-icon class="add-icon" name="add-outline"></ion-icon>

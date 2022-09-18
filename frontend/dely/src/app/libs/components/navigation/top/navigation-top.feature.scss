@@ -18,7 +18,6 @@ ion-buttons {
 
 .toolbar {
   text-align: center;
-  position: relative;
 }
 
 .title {
@@ -26,15 +25,14 @@ ion-buttons {
   left: 50%;
   bottom: 50%;
   transform: translate(-50%, 50%);
+  font-size: 1.1em;
 }
 
 :host ::ng-deep ion-header {
   background-color: transparent;
-  position: relative;
 }
 
 
 :host {
-  position: relative;
 
 }

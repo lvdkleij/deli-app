@@ -17,7 +17,7 @@ import { slideLeftAnim, slideLeftAnim2, slideLeftAnim3, SLIDE_ANIMATION_TIME } f
 })
 export class SearchModal implements OnInit {
 
-  @HostBinding('@slideLeftAnim3') get slideIn() { return this.value; };
+  @HostBinding('@slideLeftAnim3') get slideIn() { return this.isPresent; };
   @ViewChild('searchInputElement', {read: ElementRef}) searchInputElement: ElementRef;
 
   showBottomShadow = false;
@@ -28,7 +28,7 @@ export class SearchModal implements OnInit {
 
   products$;
 
-  value = null;
+  isPresent = false;
 
   constructor(
     public modalService: ModalService,
@@ -38,7 +38,7 @@ export class SearchModal implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.subscription = this.modalService.isPresent$(Modals.SEARCH).subscribe((value) => this.value = value);
+    this.subscription = this.modalService.isPresent$(Modals.SEARCH).subscribe((isPresent) => this.isPresent = isPresent);
     this.products$ = this.store.select(selectProducts);
   }
 

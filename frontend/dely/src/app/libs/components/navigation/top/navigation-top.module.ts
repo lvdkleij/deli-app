@@ -5,8 +5,6 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { SharedUiModule } from '@components/ui';
 import { NavigationTopFeature } from './navigation-top.feature';
-import { ToolBarDirective } from './navigation-top.directive';
-
 
 @NgModule({
   imports: [
@@ -17,8 +15,7 @@ import { ToolBarDirective } from './navigation-top.directive';
     SharedUiModule,
   ],
   declarations: [
-    NavigationTopFeature,
-    ToolBarDirective
+    NavigationTopFeature
   ],
   exports: [
     NavigationTopFeature

@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ShoppingListPageRoutingModule } from './shopping-list-routing.module';
 
 import { ShoppingListPage } from './shopping-list.page';
-import { ItemModalModule, SearchModalModule } from '@components/modals';
+import { ItemModalModule, SearchModalModule, WithNavigationModule } from '@components/modals';
 import { SharedUiModule } from '@components/ui';
 import { SideMenuFeatureModule } from '@components/side-menu';
 import { ListModule } from '@components/lists';
@@ -25,7 +25,8 @@ import { ScrollTransmitterDirective } from '@directives';
     SharedUiModule,
     ItemModalModule,
     NavigationTopModule,
-    SearchModalModule
+    SearchModalModule,
+    WithNavigationModule
   ],
   declarations: [
     ShoppingListPage,

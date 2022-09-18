@@ -4,10 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { SharedUiModule } from '@components/ui';
-import { SearchIngredientListModule } from '@components/lists';
-import { SearchModal } from './search.modal';
 import { NavigationTopModule } from '@components/navigation';
-import { WithNavigationModule } from '../with-navigation';
+import { WithNavigationModal } from './with-navigation.modal';
 
 
 @NgModule({
@@ -17,15 +15,13 @@ import { WithNavigationModule } from '../with-navigation';
     RouterModule,
     IonicModule,
     SharedUiModule,
-    SearchIngredientListModule,
-    NavigationTopModule,
-    WithNavigationModule
+    NavigationTopModule
   ],
   exports: [
-    SearchModal
+    WithNavigationModal
   ],
   declarations: [
-    SearchModal
+    WithNavigationModal
   ]
 })
-export class SearchModalModule {}
+export class WithNavigationModule {}

@@ -1,12 +1,12 @@
 <div class="searchbar-wrapper padding-rem-h--md padding-rem-v--sm">
   <div class="input-wrapper">
-    <div class="input-block"  *ngIf="(modalService.isPresent$(modals.SEARCH) | async) !== true" (click)="onPresentModal()"></div>
+    <div class="input-block"  *ngIf="isPresent !== true" (click)="onPresentModal()"></div>
     <input
       class="padding-rem-h--sm padding-rem-v--xs"
       #searchInputElement type="text" placeholder="Voeg iets toe aan je lijst...">
   </div>
   <span
-    *ngIf="modalService.isPresent$(modals.SEARCH) | async; else addIcon"
+    *ngIf="isPresent; else addIcon"
     class="primary-text-color" (click)="onDismissModal()">sluiten</span>
   <ng-template #addIcon>
     <div class="selected-wrapper right" (click)="onPresentModal()">
@@ -15,7 +15,9 @@
   </ng-template>
 </div>
 <div class="scroll-container padding-rem-h--md padding-rem-v--md">
-  <search-ingredient-list [products]="products$ | async" (product)="category1 = true" ></search-ingredient-list>
+  <search-ingredient-list [products]="products$ | async" (product)="modalService.present(modals.WITH_NAVIGATION)" ></search-ingredient-list>
 </div>
 
 <div class="shadow" *ngIf="showBottomShadow"></div>
+
+<with-navigation-modal></with-navigation-modal>

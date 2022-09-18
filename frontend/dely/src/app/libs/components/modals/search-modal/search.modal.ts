@@ -60,6 +60,7 @@ export class SearchModal implements OnInit {
 
   onDismissModal() {
     this.modalService.dismiss(Modals.SEARCH);
+    this.modalService.dismiss(Modals.WITHOUT_NAVIGATION);
     this.domCtrl.write(() => {
       this.renderer.setAttribute(this.searchInputElement.nativeElement, 'placeholder', 'Voeg iets toe aan je lijst...');
     });

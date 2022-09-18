@@ -11,8 +11,8 @@ import { ItemModalModule, SearchModalModule } from '@components/modals';
 import { SharedUiModule } from '@components/ui';
 import { SideMenuFeatureModule } from '@components/side-menu';
 import { ListModule } from '@components/lists';
-import { NavigationTopModule, NavigationTopWithSearchbarComponentModule } from '@components/navigation';
-import { HideMainHeaderDirective, HideSearchbarDirective, ScrollTransmitterDirective } from '@directives';
+import { NavigationTopModule } from '@components/navigation';
+import { ScrollTransmitterDirective } from '@directives';
 
 @NgModule({
   imports: [
@@ -20,7 +20,6 @@ import { HideMainHeaderDirective, HideSearchbarDirective, ScrollTransmitterDirec
     FormsModule,
     IonicModule,
     ShoppingListPageRoutingModule,
-    NavigationTopWithSearchbarComponentModule,
     ListModule,
     SideMenuFeatureModule,
     SharedUiModule,
@@ -30,8 +29,6 @@ import { HideMainHeaderDirective, HideSearchbarDirective, ScrollTransmitterDirec
   ],
   declarations: [
     ShoppingListPage,
-    HideMainHeaderDirective,
-    HideSearchbarDirective,
     ScrollTransmitterDirective
   ]
 })

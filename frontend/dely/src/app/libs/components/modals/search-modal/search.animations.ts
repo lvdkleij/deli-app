@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
-
+export const SLIDE_ANIMATION_TIME = 200;
 export const slideLeftAnim = trigger('slideLeftAnim', [
   state('true', style({
     opacity: '1',
@@ -20,5 +20,5 @@ export const slideLeftAnim3 = trigger('slideLeftAnim3', [
   state('true', style({
     top: '0'
   })),
-  transition('* <=> *', [animate('200ms ease-in-out')])
+  transition('* <=> *', [animate(`${SLIDE_ANIMATION_TIME}ms ease-in-out`)])
 ]);

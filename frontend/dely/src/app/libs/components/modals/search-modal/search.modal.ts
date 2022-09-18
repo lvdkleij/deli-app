@@ -1,11 +1,11 @@
 
-import { AfterViewInit, Component, HostBinding, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostBinding, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectProducts, StoreState } from '@store';
 import { Observable, Subscription } from 'rxjs';
 import { Modals } from '../modal.constants';
 import { Modal, ModalService } from '../modal.service';
-import { slideLeftAnim, slideLeftAnim2, slideLeftAnim3 } from './search.animations';
+import { slideLeftAnim, slideLeftAnim2, slideLeftAnim3, SLIDE_ANIMATION_TIME } from './search.animations';
 
 
 @Component({
@@ -17,6 +17,7 @@ import { slideLeftAnim, slideLeftAnim2, slideLeftAnim3 } from './search.animatio
 export class SearchModal implements OnInit {
 
   @HostBinding('@slideLeftAnim3') get slideIn() { return this.value; };
+  @ViewChild('searchInputElement', {read: ElementRef}) searchInputElement: ElementRef;
 
   category1;
   modals = Modals;
@@ -39,6 +40,9 @@ export class SearchModal implements OnInit {
 
   onPresentModal() {
     this.modalService.present(Modals.SEARCH);
+    setTimeout(() => {
+      this.searchInputElement.nativeElement.focus();
+    }, SLIDE_ANIMATION_TIME);
   }
 
 

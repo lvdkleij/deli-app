@@ -1,6 +1,7 @@
 <div class="searchbar-wrapper padding-rem-h--md padding-rem-v--sm">
-  <div>
-    <input type="text" placeholder="Voeg iets toe aan je lijst..." (click)="onPresentModal()">
+  <div style="position: relative;">
+    <div class="input-block"  *ngIf="(modalService.isPresent$(modals.SEARCH) | async) !== true" (click)="onPresentModal()"></div>
+    <input #searchInputElement type="text" placeholder="Voeg iets toe aan je lijst...">
   </div>
   <span *ngIf="modalService.isPresent$(modals.SEARCH) | async; else addIcon" class="zz" (click)="onDismissModal()">sluiten</span>
   <ng-template #addIcon>

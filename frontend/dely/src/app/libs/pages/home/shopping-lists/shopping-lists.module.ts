@@ -10,7 +10,6 @@ import { ShoppingListsPage } from './shopping-lists.page';
 import { NavigationTopModule } from '@components/navigation';
 import { CreateShoppingListModalModule } from '@components/modals';
 import { ShoppingListsComponentModule } from '@components/shopping-lists';
-import { HideMainHeaderDirective } from '@directives';
 
 @NgModule({
   imports: [

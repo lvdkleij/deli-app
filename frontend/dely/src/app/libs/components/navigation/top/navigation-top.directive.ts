@@ -11,7 +11,7 @@ export class ToolBarDirective implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    // this.component.toolbarHeight = 42;
+    // this.component.toolbarHeight = 56;
     // this.component.hideToolbar = true;
     console.log(this.element);
   }

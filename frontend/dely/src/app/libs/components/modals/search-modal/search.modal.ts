@@ -42,17 +42,19 @@ export class SearchModal implements OnInit {
     this.products$ = this.store.select(selectProducts);
   }
 
-  onPresentModal() {
+  onPresentModal(focusInput: boolean = false) {
     this.modalService.present(Modals.SEARCH);
     //https://stackoverflow.com/questions/72433442/displaying-keyboard-in-safari-ios-after-focus-on-input-after-page-loads-modal-s
-    this.domCtrl.write(() => {
-      this.renderer.setAttribute(this.searchInputElement.nativeElement, 'placeholder', 'Zoek een product...');
-    });
-    this.showBottomShadow = true;
-    setTimeout(() => {
-      this.searchInputElement.nativeElement.click();
-      this.searchInputElement.nativeElement.focus();
-    }, SLIDE_ANIMATION_TIME);
+    if (focusInput) {
+      this.domCtrl.write(() => {
+        this.renderer.setAttribute(this.searchInputElement.nativeElement, 'placeholder', 'Zoek een product...');
+      });
+      this.showBottomShadow = true;
+      setTimeout(() => {
+        this.searchInputElement.nativeElement.click();
+        this.searchInputElement.nativeElement.focus();
+      }, SLIDE_ANIMATION_TIME);
+    }
   }
 
 

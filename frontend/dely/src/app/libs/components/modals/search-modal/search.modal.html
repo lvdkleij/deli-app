@@ -1,4 +1,7 @@
 <div class="searchbar-wrapper padding-rem-h--md padding-rem-v--sm">
+  <div class="selected-wrapper" (click)="modalService.dismiss(modals.WITHOUT_NAVIGATION)" *ngIf="modalService.isPresent$(modals.WITHOUT_NAVIGATION) | async">
+    <ion-icon name="chevron-back-outline"></ion-icon>
+  </div>
   <div class="input-wrapper">
     <div class="input-block"  *ngIf="isPresent !== true" (click)="onPresentModal(true)"></div>
     <input
@@ -9,15 +12,14 @@
     *ngIf="isPresent; else addIcon"
     class="primary-text-color" (click)="onDismissModal()">sluiten</span>
   <ng-template #addIcon>
-    <div class="selected-wrapper right" (click)="onPresentModal()">
+    <div class="selected-wrapper" (click)="onPresentModal()">
       <ion-icon class="add-icon" name="add-outline"></ion-icon>
     </div>
   </ng-template>
 </div>
 <div class="scroll-container padding-rem-h--md padding-rem-v--md">
-  <search-ingredient-list [products]="products$ | async" (product)="modalService.present(modals.WITH_NAVIGATION)" ></search-ingredient-list>
+  <search-ingredient-list [products]="products$ | async" (product)="modalService.present(modals.WITHOUT_NAVIGATION)" ></search-ingredient-list>
 </div>
 
 <div class="shadow" *ngIf="showBottomShadow"></div>
-
-<with-navigation-modal></with-navigation-modal>
+<without-navigation-modal style="top: 56px;"></without-navigation-modal>

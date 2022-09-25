@@ -1,16 +1,13 @@
 
 
 import { Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { selectProducts, StoreState } from '@store';
-import { map, Observable, shareReplay, tap } from 'rxjs';
-import { hideLeftPart, slideLeftAnim } from '../welcome/welcome.animations';
+import { hideLeftPart } from '../welcome/welcome.animations';
 
 @Component({
   selector: 'shopping-list-feature',
   templateUrl: './shopping-list.feature.html',
   styleUrls: ['./shopping-list.feature.scss'],
-  animations: [slideLeftAnim, hideLeftPart],
+  animations: [hideLeftPart],
 })
 export class ShoppingListFeature implements OnInit {
 

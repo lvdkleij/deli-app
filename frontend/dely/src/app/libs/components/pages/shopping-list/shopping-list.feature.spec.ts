@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule } from '@ionic/angular';
 
 import { ShoppingListFeature } from './shopping-list.feature';
@@ -10,7 +11,7 @@ describe('ShoppingListFeature', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ShoppingListFeature ],
-      imports: [IonicModule.forRoot()],
+      imports: [IonicModule.forRoot(), NoopAnimationsModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ShoppingListFeature);

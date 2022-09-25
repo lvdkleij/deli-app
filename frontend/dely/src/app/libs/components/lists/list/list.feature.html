@@ -5,7 +5,6 @@
     <ng-container *ngIf="aile.itemsUnselected.length">
       <h2 class="padding-rem-h--md  margin-t--sm">{{ aile.name }}</h2>
       <ingredient-item
-        class="item"
         *ngFor="let _ of aile.itemsUnselected; let j = index"
         (isSelected)="onIsSelected('itemsUnselected', i, j)"
         (destroy)="onDeleteItem('itemsUnselected', i, j)"

@@ -22,3 +22,8 @@ export const selectProducts = createSelector(
   selectApp,
   (state: StoreState) => state.app.products
 );
+
+export const selectSkipWelcomePage = createSelector(
+  selectApp,
+  (state: StoreState) => state.app.skipWelcomePage
+);

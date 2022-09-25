@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PantryPageRoutingModule } from './pantry-routing.module';
 
 import { PantryPage } from './pantry.page';
+import { PantryFeatureModule } from '@components/pages';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PantryPageRoutingModule
+    PantryPageRoutingModule,
+    PantryFeatureModule
   ],
   declarations: [PantryPage]
 })

@@ -1,0 +1,44 @@
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+
+  .body {
+    flex-grow: 1;
+  }
+
+  .bottom-navigation {
+    display: flex;
+    justify-content: space-between;
+    flex: 0 0 30px;
+  }
+
+}
+
+.hideScreen {
+  transform: translate(100%);
+}
+
+.opacity--0 {
+  opacity: 0;
+}
+
+
+.justify--end {
+  justify-content: flex-end !important;
+}
+ion-toolbar {
+  --min-height: 0;
+  --ion-background-color: transparent;
+}
+
+.header-md::after {
+  background-image: none;
+}

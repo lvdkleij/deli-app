@@ -13,6 +13,7 @@ import { SideMenuFeatureModule } from '@components/side-menu';
 import { ListModule } from '@components/lists';
 import { NavigationTopModule } from '@components/navigation';
 import { ScrollTransmitterDirective } from '@directives';
+import { ShoppingListFeatureModule } from '@components/pages';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { ScrollTransmitterDirective } from '@directives';
     ItemModalModule,
     NavigationTopModule,
     SearchModalModule,
-    WithNavigationModule
+    WithNavigationModule,
+    ShoppingListFeatureModule
   ],
   declarations: [
     ShoppingListPage,

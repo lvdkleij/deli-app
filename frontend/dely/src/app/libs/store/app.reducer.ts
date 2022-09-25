@@ -1,21 +1,21 @@
 
 
 import { createReducer, on } from '@ngrx/store';
-import { addShoppingList, setActiveShoppingList, setProducts, setShoppingLists } from './app.actions';
-
-
+import { addShoppingList, setActiveShoppingList, setProducts, setShoppingLists, setSkipWelcomePage } from './app.actions';
 
 
 export interface AppState {
   lists: any[];
   activeShoppingList: string;
   products: any[];
+  skipWelcomePage: boolean;
 }
 
 const initialState: AppState = {
   lists: [],
   activeShoppingList: '',
-  products: []
+  products: [],
+  skipWelcomePage: false
 };
 
 const _appReducer = createReducer(
@@ -35,6 +35,10 @@ const _appReducer = createReducer(
   on(setProducts, (state, { products }) => ({
     ...state,
     products
+  })),
+  on(setSkipWelcomePage, (state, { _skipWelcomePage }) => ({
+    ...state,
+    skipWelcomePage: _skipWelcomePage
   }))
 );
 

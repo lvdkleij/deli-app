@@ -1,7 +1,6 @@
 
-<ion-header [translucent]="true">
-  <ion-toolbar>
-  </ion-toolbar>
+<ion-header collapse="collapse">
+  <ion-toolbar></ion-toolbar>
   <ion-toolbar class="toolbar padding-rem-h--md padding-rem-v--sm primary-text-color text-weight--bold text-size--sm">
     <ion-buttons slot="start">
       <ng-content select="[start]"></ng-content>
@@ -9,7 +8,7 @@
     <ion-buttons slot="end">
       <ng-content select="[end]"></ng-content>
     </ion-buttons>
-    <h1 *ngIf="data.title" class="title">{{ data.title }}</h1>
+    <!-- <h1 *ngIf="data.title" class="title">{{ data.title }}</h1> -->
   </ion-toolbar>
   <ng-content select="[subheader]"></ng-content>
 </ion-header>

@@ -8,16 +8,40 @@ const routes: Routes = [
     component: HomePage,
     children: [
       {
-        path: 'pantry',
-        loadChildren: () => import('./pantry/pantry.module').then( m => m.PantryPageModule)
+        path: 'shopping-lists',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('./shopping-lists/shopping-lists.module').then( m => m.ShoppingListsPageModule)
+          },
+        ]
       },
       {
-        path: 'shopping-lists',
-        loadChildren: () => import('./shopping-lists/shopping-lists.module').then( m => m.ShoppingListsPageModule)
+        path: 'shopping-lists/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('./shopping-lists/shopping-list/shopping-list.module').then( m => m.ShoppingListPageModule)
+          },
+        ]
+      },
+      {
+        path: 'pantry',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('./pantry/pantry.module').then( m => m.PantryPageModule)
+          },
+        ]
       },
       {
         path: 'profile',
-        loadChildren: () => import('./user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('./user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+          },
+        ]
       },
       {
         path: '',
@@ -26,10 +50,15 @@ const routes: Routes = [
       },
     ]
   },
+  {
+    path: '',
+    redirectTo: 'shopping-lists',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class HomePageRoutingModule {}

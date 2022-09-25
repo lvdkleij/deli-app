@@ -1,0 +1,28 @@
+<div class="container ion-padding" *ngIf="data" [@hideLeftPart]="isModalOpen" >
+  <h1 class="margin-rem-b--xl">{{ data.title }}</h1>
+  <div class="list" *ngIf="data.products.length; else start">
+    list
+  </div>
+  <ng-template #start>
+    <div>
+      <h2>Your shopping list is empty</h2>
+      <p>Start adding products <a (click)="isModalOpen = true">here</a></p>
+    </div>
+  </ng-template>
+</div>
+
+<ion-modal [isOpen]="isModalOpen" *ngIf="isModalOpen" @slideLeftAnim>
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Modal</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="isModalOpen = false">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <search-ingredient-list></search-ingredient-list>
+    </ion-content>
+  </ng-template>
+</ion-modal>

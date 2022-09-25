@@ -2,14 +2,13 @@
 h1 {
   font-size: var(--text-sm);
 }
-
 ion-header {
-  background-color: white;
+  height: 50px;
 }
 
 ion-toolbar {
   --min-height: 0;
-  --ion-toolbar-background-color: transparent;
+  --ion-background-color: transparent;
 }
 
 ion-buttons {
@@ -18,20 +17,41 @@ ion-buttons {
 
 .toolbar {
   text-align: center;
+  background-color: transparent;
 }
 
 .title {
   position: absolute;
   left: 50%;
-  bottom: 50%;
+  top: -50%;
   transform: translate(-50%, 50%);
-  font-size: 1.1em;
+  font-size: 1.4em;
+  z-index: 20;
 }
 
-:host ::ng-deep ion-header {
-  background-color: transparent;
+// .header-md::after {
+//   background-image: none;
+// }
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  // mix-blend-mode: hard-light;
 }
 
+.header::after {
+  position: absolute;
+  content: "";
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(white, transparent);
+  pointer-events: none;
+}
 
 :host {
   z-index: 12;

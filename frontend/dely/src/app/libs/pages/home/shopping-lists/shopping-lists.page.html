@@ -1,5 +1,5 @@
 <navigation-top [data]="{ title: 'Shopping lists'}">
-  <ion-icon name="chevron-back-outline" start style="font-size: 24px;" *ngIf="activeShoppingList$ | async as activeShoppingList" [routerLink]="activeShoppingList"></ion-icon>
+  <ion-icon name="chevron-back-outline" start style="font-size: 24px;" *ngIf="activeShoppingList$ | async as activeShoppingList" [routerLink]="['/shopping-lists/' + activeShoppingList]"></ion-icon>
   <span end>settings</span>
 </navigation-top>
 
@@ -12,7 +12,6 @@
   <button class="add-list-button" (click)="onCreateList()">
     <ion-icon class="add-icon" name="add-outline"></ion-icon>
   </button>
-  <div class="shadow"></div>
 </ion-content>
 
 <create-shopping-list-modal></create-shopping-list-modal>

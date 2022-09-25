@@ -1,4 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { selectProducts, StoreState } from '@store';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -6,12 +9,21 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './search-ingredient-list.feature.html',
   styleUrls: ['./search-ingredient-list.feature.scss']
 })
-export class SearchIngredientListFeature {
+export class SearchIngredientListFeature implements OnInit {
 
-  @Input() products: any[];
   @Output() product = new EventEmitter<string>();
 
   lala = {};
+
+  products$: Observable<any[]>;
+
+  constructor(
+    private readonly store: Store<StoreState>
+  ) {}
+
+  ngOnInit(): void {
+    this.products$ = this.store.select(selectProducts);
+  }
 
   onClick(i: number) {
     if (i in this.lala) {

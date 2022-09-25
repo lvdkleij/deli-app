@@ -1,5 +1,3 @@
-<div class="container padding-rem--sm" *ngIf="shoppingListCardData" [ngStyle]="{ 'background': shoppingListCardData.background}" (click)="onShoppingListCardClick()">
+<div class="container padding-rem--sm" *ngIf="shoppingListCardData" [ngStyle]="{ 'background': shoppingListCardData.background}" [routerLink]="['/shopping-lists/' + shoppingListCardData.name]">
   <h2>{{ shoppingListCardData.name }}</h2>
-
-
 </div>

@@ -9,7 +9,7 @@ import { ShoppingListsPageRoutingModule } from './shopping-lists-routing.module'
 import { ShoppingListsPage } from './shopping-lists.page';
 import { NavigationTopModule } from '@components/navigation';
 import { CreateShoppingListModalModule } from '@components/modals';
-import { ShoppingListsComponentModule } from '@components/shopping-lists';
+import { ShoppingListsComponentModule } from '@components/pages/shopping-lists';
 
 @NgModule({
   imports: [

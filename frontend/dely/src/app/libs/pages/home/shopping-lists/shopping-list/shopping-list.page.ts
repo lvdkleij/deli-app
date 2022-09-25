@@ -1,11 +1,12 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectList, StoreState, setActiveShoppingList} from '@store';
 import { first } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
 import { KeyboardListenerService, ScrollListenerService } from '@services';
 import { ModalService } from '@components/modals';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-shopping-list',
@@ -28,12 +29,15 @@ export class ShoppingListPage implements AfterViewInit, OnDestroy, OnInit {
   constructor(
     private readonly store: Store<StoreState>,
     private readonly route: ActivatedRoute,
+    private readonly router: Router,
+    private readonly navCtrl: NavController,
     readonly keyboardListener: KeyboardListenerService,
   ) { }
 
   ngOnInit(): void {
     this.store.dispatch(setActiveShoppingList({ activeShoppingList: this.route.snapshot.params.id}));
     this.route.params.pipe(first()).subscribe(({id}) => this.data = this.store.select(selectList(id)));
+    console.log('shopping list created');
   }
 
   ionViewWillEnter() {
@@ -56,6 +60,7 @@ export class ShoppingListPage implements AfterViewInit, OnDestroy, OnInit {
   }
 
   ngOnDestroy(): void {
+    console.log('shopping list destroyed')
   }
 
   onNavigateToLists() {

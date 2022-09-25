@@ -11,10 +11,6 @@ const routes: Routes = [
     resolve: {
       listsResolver: ListsResolver
     }
-  },
-  {
-    path: ':id',
-    loadChildren: () => import('./shopping-list/shopping-list.module').then( m => m.ShoppingListPageModule)
   }
 ];
 

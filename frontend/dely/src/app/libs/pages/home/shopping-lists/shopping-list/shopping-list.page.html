@@ -1,24 +1,18 @@
 
 <navigation-top [data]="{ title: 'ffasfasfasdfadfasf'}">
-  <span start routerLink="/shopping-lists">lists</span>
+  <span start [routerLink]="['/shopping-lists']">lists</span>
   <span end>settings</span>
 </navigation-top>
+
 <ion-content
-  [fullscreen]="false"
+  [fullscreen]="true"
   [scrollY]="false"
   >
-  <div
-    *ngIf="data | async as listData" class="searchbar-padding"
-    ngClass="scroll-container"
-  >
-
-    <h1 class="padding-rem-h--md padding-b--lg">{{ listData.name }}</h1>
-    <list-feature [data]="listData.items"></list-feature>
-  </div>
-  <search-modal></search-modal>
+  <shopping-list-feature [data]="{ title: 'List', products: [] }"></shopping-list-feature>
+  <!-- <search-modal></search-modal> -->
 
 </ion-content>
-<item-modal></item-modal>
+<!-- <item-modal></item-modal> -->
 
 <!-- <with-navigation-modal></with-navigation-modal> -->
 

@@ -1,25 +1,22 @@
-<div class="searchbar-wrapper padding-rem-h--md padding-rem-v--sm">
-  <div class="selected-wrapper" (click)="modalService.dismiss(modals.WITHOUT_NAVIGATION)" *ngIf="modalService.isPresent$(modals.WITHOUT_NAVIGATION) | async">
-    <ion-icon name="chevron-back-outline"></ion-icon>
-  </div>
-  <div class="input-wrapper">
-    <div class="input-block"  *ngIf="isPresent !== true" (click)="onPresentModal(true)"></div>
-    <input
-      class="padding-rem-h--sm padding-rem-v--xs"
-      #searchInputElement type="text" placeholder="Voeg iets toe aan je lijst...">
-  </div>
-  <span
-    *ngIf="isPresent; else addIcon"
-    class="primary-text-color" (click)="onDismissModal()">sluiten</span>
-  <ng-template #addIcon>
-    <div class="selected-wrapper" (click)="onPresentModal()">
-      <ion-icon class="add-icon" name="add-outline"></ion-icon>
+<navigation-top>
+  <div toolbar class="header ion-padding">
+    <button (click)="onClose()">back</button>
+    <div class="searchbar">
+      <input type="text" placeholder="Zoek een product" [(ngModel)]="searchText">
     </div>
-  </ng-template>
-</div>
-<div class="scroll-container padding-rem-h--md padding-rem-v--md">
-  <search-ingredient-list [products]="products$ | async" (product)="modalService.present(modals.WITHOUT_NAVIGATION)" ></search-ingredient-list>
+    <button *ngIf="searchText" (click)="onStopSearch()">x</button>
+  </div>
+</navigation-top>
+<div class="container">
+  <div class="modal first ion-padding" [@hideLeftPart]="showCategoryModal">
+    <search-ingredient-list (product)="onCategoryClick($event)" [data]="categories$ | async"></search-ingredient-list>
+  </div>
+
+  <div class="modal second ion-padding" *ngIf="showCategoryModal" @slideLeftAnim>
+    ff
+
+  </div>
 </div>
 
-<div class="shadow" *ngIf="showBottomShadow"></div>
-<without-navigation-modal style="top: 56px;"></without-navigation-modal>
+
+

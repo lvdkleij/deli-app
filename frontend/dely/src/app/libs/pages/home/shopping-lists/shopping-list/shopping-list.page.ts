@@ -40,18 +40,6 @@ export class ShoppingListPage implements AfterViewInit, OnDestroy, OnInit {
     console.log('shopping list created');
   }
 
-  ionViewWillEnter() {
-    this.viewWillLeave = false;
-    this.viewDidEnter = true;
-    // this.touchMoveSubscription = this.touchMoveListener.listen$.subscribe(x => console.log('1', x));
-  }
-
-  ionViewWillLeave() {
-    this.viewDidEnter = false;
-    this.viewWillLeave = true;
-    // this.touchMoveSubscription.unsubscribe();
-  }
-
   ngAfterViewInit(): void {
     // setInterval(() => {
     //   console.log(this.navTop);
@@ -60,7 +48,7 @@ export class ShoppingListPage implements AfterViewInit, OnDestroy, OnInit {
   }
 
   ngOnDestroy(): void {
-    console.log('shopping list destroyed')
+    console.log('shopping list destroyed');
   }
 
   onNavigateToLists() {

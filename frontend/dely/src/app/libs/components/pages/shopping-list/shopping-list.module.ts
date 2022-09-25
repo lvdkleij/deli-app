@@ -6,6 +6,8 @@ import { IonicModule } from '@ionic/angular';
 import { SharedUiModule } from '@components/ui';
 import { ShoppingListFeature } from './shopping-list.feature';
 import { SearchIngredientListModule } from '@components/lists';
+import { NavigationTopModule } from '@components/navigation';
+import { SearchModalModule } from '@components/modals';
 
 @NgModule({
   imports: [
@@ -14,7 +16,9 @@ import { SearchIngredientListModule } from '@components/lists';
     RouterModule,
     IonicModule,
     SharedUiModule,
-    SearchIngredientListModule
+    SearchIngredientListModule,
+    NavigationTopModule,
+    SearchModalModule
   ],
   declarations: [
     ShoppingListFeature

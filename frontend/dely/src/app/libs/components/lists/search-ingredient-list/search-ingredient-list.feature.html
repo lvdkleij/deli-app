@@ -1,6 +1,6 @@
 
 <div class="container">
-  <div *ngFor="let category of products$ | async">
-    <ingredient-item-search [data]="{ name: category.name, icon: ''}" (click)="product.emit(category.name)"></ingredient-item-search>
+  <div *ngFor="let item of data">
+    <ingredient-item-search [data]="{ name: item.text, icon: ''}" (click)="product.emit(item.text)"></ingredient-item-search>
   </div>
 </div>

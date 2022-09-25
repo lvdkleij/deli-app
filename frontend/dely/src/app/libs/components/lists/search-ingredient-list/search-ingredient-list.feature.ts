@@ -1,8 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { selectProducts, StoreState } from '@store';
-import { Observable } from 'rxjs';
-
 
 @Component({
   selector: 'search-ingredient-list',
@@ -12,17 +8,14 @@ import { Observable } from 'rxjs';
 export class SearchIngredientListFeature implements OnInit {
 
   @Output() product = new EventEmitter<string>();
+  @Input() data: any[];
 
   lala = {};
 
-  products$: Observable<any[]>;
-
   constructor(
-    private readonly store: Store<StoreState>
   ) {}
 
   ngOnInit(): void {
-    this.products$ = this.store.select(selectProducts);
   }
 
   onClick(i: number) {

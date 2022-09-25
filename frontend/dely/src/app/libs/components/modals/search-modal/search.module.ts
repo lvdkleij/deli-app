@@ -20,8 +20,6 @@ import { WithoutNavigationModalModule } from '../without-navigation';
     SharedUiModule,
     SearchIngredientListModule,
     NavigationTopModule,
-    WithNavigationModule,
-    WithoutNavigationModalModule
   ],
   exports: [
     SearchModal

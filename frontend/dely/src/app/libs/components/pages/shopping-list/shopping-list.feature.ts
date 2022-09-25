@@ -1,24 +1,27 @@
 
 
-import { Component, Input } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { selectProducts, StoreState } from '@store';
+import { map, Observable, shareReplay, tap } from 'rxjs';
 import { hideLeftPart, slideLeftAnim } from '../welcome/welcome.animations';
 
 @Component({
   selector: 'shopping-list-feature',
   templateUrl: './shopping-list.feature.html',
   styleUrls: ['./shopping-list.feature.scss'],
-  animations: [slideLeftAnim, hideLeftPart]
+  animations: [slideLeftAnim, hideLeftPart],
 })
-export class ShoppingListFeature {
+export class ShoppingListFeature implements OnInit {
 
-  @Input() data: { title: string; products: any[] };
+  @Input() data: { title: string; productsData: { [key: string]: []} };
 
-  isModalOpen = false;
-  isIosApp = false;
+  showSearchModal = false;
 
   constructor(
-    private readonly navCtrl: NavController,
   ) {}
 
+  ngOnInit(): void {
+
+  }
 }

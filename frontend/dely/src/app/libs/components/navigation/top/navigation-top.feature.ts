@@ -1,8 +1,7 @@
 
 
-import { Component, EventEmitter, Input, Output, Renderer2, ViewChild } from '@angular/core';
-import { NavController, Platform } from '@ionic/angular';
-import { OptionsClickListenerService } from './services/options.service';
+import { Component, Input } from '@angular/core';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'navigation-top',
@@ -11,13 +10,9 @@ import { OptionsClickListenerService } from './services/options.service';
 })
 export class NavigationTopFeature {
 
-  @Input() data: { title?: string } = {};
-
   isIosApp = false;
 
   constructor(
-    readonly optionsClickListener: OptionsClickListenerService,
-    private readonly navCtrl: NavController,
     private readonly platform: Platform
   ) {
     let isIos = false;
@@ -30,15 +25,4 @@ export class NavigationTopFeature {
     this.isIosApp = isApp && isIos;
   }
 
-  minMax(value, min, max) {
-    return Math.max(Math.min(value, max), min);
-  }
-
-  onShowMenu() {
-    this.navCtrl.navigateBack('/shopping-lists');
-  }
-
-  onShowOptions() {
-    this.optionsClickListener.emitChange();
-  }
 }

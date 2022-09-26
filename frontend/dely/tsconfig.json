@@ -21,6 +21,9 @@
       "@services": [
         "src/app/libs/services/index.ts"
       ],
+      "@animations": [
+        "src/app/libs/animations/index.ts"
+      ],
       "@directives": [
         "src/app/libs/directives/index.ts"
       ],

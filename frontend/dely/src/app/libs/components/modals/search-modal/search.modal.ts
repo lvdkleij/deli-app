@@ -1,25 +1,21 @@
 
-import { AfterViewInit, Component, ElementRef, EventEmitter, HostBinding, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
-import { hideLeftPart, slideLeftAnim } from '@components/pages/welcome/welcome.animations';
-import { DomController } from '@ionic/angular';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { hideLeftPart, opacityAnim, slideLeftAnim } from '@animations';
 import { Store } from '@ngrx/store';
 import { selectProducts, StoreState } from '@store';
-import { map, Observable, shareReplay, Subscription } from 'rxjs';
-import { Modals } from '../modal.constants';
-import { Modal, ModalService } from '../modal.service';
+import { map, Observable, shareReplay, tap } from 'rxjs';
+import { ModalService } from '../modal.service';
 
 
 @Component({
   selector: 'search-modal',
   templateUrl: 'search.modal.html',
   styleUrls: ['search.modal.scss'],
-  animations: [hideLeftPart, slideLeftAnim]
+  animations: [hideLeftPart, slideLeftAnim, opacityAnim]
 })
 export class SearchModal implements OnInit {
 
   @Output() closeModal = new EventEmitter();
-
-  products$;
 
   searchText = '';
 
@@ -27,6 +23,12 @@ export class SearchModal implements OnInit {
 
   productsData$: Observable<any>;
   categories$: Observable<any[]>;
+  subCategories$: Observable<any>;
+  products$: Observable<any[]>;
+
+  showSubCategory = {
+
+  }
 
   constructor(
     public modalService: ModalService,
@@ -40,8 +42,27 @@ export class SearchModal implements OnInit {
     );
   }
 
-  onCategoryClick(category: string) {
+  onCategoryClick(categoryName: string) {
     this.showCategoryModal = true;
+    this.showSubCategory = {};
+    this.subCategories$ = this.productsData$.pipe(
+      map(data => data.filter(category => category.name === categoryName)[0]),
+      tap(category => category.products.forEach(subCategory => {
+        this.showSubCategory[subCategory] = true;
+      }))
+    );
+  }
+
+  onSubCategoryClick(subCategory: string) {
+    this.showSubCategory[subCategory] = !this.showSubCategory[subCategory];
+    this.onFilter();
+  }
+
+  onFilter() {
+    this.products$ = this.subCategories$.pipe(
+      tap(x => console.log(x)),
+      map(subCategories => subCategories.products.filter(subCategory => this.showSubCategory[subCategory.name])),
+    );
   }
 
   onClose() {
@@ -55,6 +76,4 @@ export class SearchModal implements OnInit {
   onStopSearch() {
     this.searchText = '';
   }
-
-
 }

@@ -2,7 +2,7 @@
 
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { AnimationController, NavController } from '@ionic/angular';
-import { closeModal, hideLeftPart, opacityAnim, slideLeftAnim } from './welcome.animations';
+import { closeModal, hideLeftPart, opacityAnim, slideLeftAnim } from '@animations';
 
 @Component({
   selector: 'welcome-feature',

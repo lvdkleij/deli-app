@@ -4,7 +4,7 @@
     <div class="searchbar">
       <input type="text" placeholder="Zoek een product" [(ngModel)]="searchText">
     </div>
-    <button *ngIf="searchText" (click)="onStopSearch()">x</button>
+    <button *ngIf="searchText" (click)="onStopSearch()" @opacityAnim>x</button>
   </div>
 </navigation-top>
 <div class="container">
@@ -13,7 +13,19 @@
   </div>
 
   <div class="modal second ion-padding" *ngIf="showCategoryModal" @slideLeftAnim>
-    ff
+    <ng-container *ngIf="subCategories$ | async as subCategories" >
+      <div class="sub-categories">
+        <button (click)="onSubCategoryClick('all')">
+          all
+        </button>
+        <button *ngFor="let subCategory of subCategories.products" (click)="onSubCategoryClick(subCategory.name)">
+          {{ subCategory.name }}
+        </button>
+      </div>
+      <div>
+        {{ products$ | async}}
+      </div>
+    </ng-container>
 
   </div>
 </div>

@@ -1,13 +1,13 @@
 
 
 import { Component, Input, OnInit } from '@angular/core';
-import { hideLeftPart } from '../welcome/welcome.animations';
+import { hideLeftPart, slideLeftAnim } from '@animations';
 
 @Component({
   selector: 'shopping-list-feature',
   templateUrl: './shopping-list.feature.html',
   styleUrls: ['./shopping-list.feature.scss'],
-  animations: [hideLeftPart],
+  animations: [hideLeftPart, slideLeftAnim],
 })
 export class ShoppingListFeature implements OnInit {
 

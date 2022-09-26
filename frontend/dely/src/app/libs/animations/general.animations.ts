@@ -9,6 +9,15 @@ export const slideLeftAnim = trigger('slideLeftAnim', [
   ])
 ]);
 
+export const slideInFromBottom = trigger('slideInFromBottom', [
+  transition(':enter', [
+    style({ transform: 'translateY(100%)'}),
+    animate('300ms ease-out', style({ transform: 'translateY(0)' }))]),
+  transition(':leave', [
+    animate('300ms ease-out', style({ transform: 'translateY(100%)' }))
+  ])
+]);
+
 export const opacityAnim = trigger('opacityAnim', [
   transition(':enter', [
     style({ opacity: '0'}),
@@ -21,6 +30,13 @@ export const opacityAnim = trigger('opacityAnim', [
 export const hideLeftPart = trigger('hideLeftPart', [
   state('true', style({
     transform: 'translateX(-20%)',
+  })),
+  transition('* <=> *', [animate('300ms ease-out')])
+]);
+
+export const hideTopPart = trigger('hideTopPart', [
+  state('true', style({
+    transform: 'translateY(-20%)',
   })),
   transition('* <=> *', [animate('300ms ease-out')])
 ]);

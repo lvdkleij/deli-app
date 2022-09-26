@@ -1,31 +1,40 @@
 <navigation-top>
   <div toolbar class="header ion-padding">
     <button (click)="onClose()">back</button>
-    <div class="searchbar">
+    <div class="searchbar" (click)="showSearchResults = true">
       <input type="text" placeholder="Zoek een product" [(ngModel)]="searchText">
     </div>
     <button *ngIf="searchText" (click)="onStopSearch()" @opacityAnim>x</button>
   </div>
 </navigation-top>
+
 <div class="container">
-  <div class="modal first ion-padding" [@hideLeftPart]="showCategoryModal">
-    <search-ingredient-list (product)="onCategoryClick($event)" [data]="categories$ | async"></search-ingredient-list>
+
+  <div class="modal first ion-padding" [@hideTopPart]="showCategoryModal">
+    <search-ingredient-list (product)="onCategoryClick($event)" [data]="categoriesNameAndIcon$ | async"></search-ingredient-list>
   </div>
 
-  <div class="modal second ion-padding" *ngIf="showCategoryModal" @slideLeftAnim>
-    <ng-container *ngIf="subCategories$ | async as subCategories" >
+  <div class="modal second ion-padding" *ngIf="showCategoryModal" @slideInFromBottom>
+    <ng-container *ngIf="productSubCategoriesData$ | async as subCategories" >
       <div class="sub-categories">
         <button (click)="onSubCategoryClick('all')">
           all
         </button>
-        <button *ngFor="let subCategory of subCategories.products" (click)="onSubCategoryClick(subCategory.name)">
+        <button *ngFor="let subCategory of subCategories" (click)="onSubCategoryClick(subCategory.name)">
           {{ subCategory.name }}
         </button>
       </div>
       <div>
-        {{ products$ | async}}
+        <div *ngFor="let product of products$ | async">
+          {{ product.name }}
+        </div>
       </div>
     </ng-container>
+
+  </div>
+
+  <div class="modal third search-results ion-padding" *ngIf="showSearchResults">
+
 
   </div>
 </div>

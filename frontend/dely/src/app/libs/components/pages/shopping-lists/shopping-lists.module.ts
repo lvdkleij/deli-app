@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { NavigationTopModule } from '@components/navigation';
 import { SharedUiModule } from '@components/ui';
 import { IonicModule } from '@ionic/angular';
+import { AddListFeatureModule } from './add-list-feature/add-list.module';
 import { ShoppingListsComponent } from './shopping-lists.component';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { ShoppingListsComponent } from './shopping-lists.component';
     SharedUiModule,
     RouterModule,
     NavigationTopModule,
+    AddListFeatureModule
   ],
   exports: [ShoppingListsComponent],
   declarations: [ShoppingListsComponent]

@@ -19,7 +19,7 @@ import { NavController } from '@ionic/angular';
 })
 export class ShoppingListPage implements AfterViewInit, OnDestroy, OnInit {
 
-  data: Observable<any>;
+  data$: Observable<any>;
   scrollSubscription: Subscription;
   touchEvent$;
 
@@ -37,7 +37,7 @@ export class ShoppingListPage implements AfterViewInit, OnDestroy, OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(setActiveShoppingList({ activeShoppingList: this.route.snapshot.params.id}));
-    this.route.params.pipe(first()).subscribe(({id}) => this.data = this.store.select(selectList(id)));
+    this.route.params.pipe(first()).subscribe(({id}) => this.data$ = this.store.select(selectList(id)));
     console.log('shopping list created');
   }
 

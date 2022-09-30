@@ -1,6 +1,12 @@
 :host {
   display: contents;
 
+  ui-button--2 {
+    position: absolute;
+    bottom: 70px;
+    right: 20px;
+  }
+
   .toolbar {
     display: flex;
     justify-content: space-between;
@@ -32,3 +38,4 @@
     }
   }
 }
+

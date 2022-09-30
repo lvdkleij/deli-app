@@ -1,13 +1,17 @@
 
 :host {
+  display: contents;
+
+
   .toolbar {
     display: flex;
     justify-content: space-between;
   }
-}
 
-
-:host {
-  display: contents;
+  .ff {
+    position: absolute;
+    bottom: 90px;
+    left: 0;
+  }
 }
 

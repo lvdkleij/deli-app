@@ -1,1 +1,1 @@
-<shopping-list-feature [data]="{ title: 'List', productsData: { key: [] } }"></shopping-list-feature>
+<shopping-list-feature *ngIf="data$ | async as data" [data]="data"></shopping-list-feature>

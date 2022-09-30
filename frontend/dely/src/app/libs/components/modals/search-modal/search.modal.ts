@@ -3,7 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { hideLeftPart, hideTopPart, opacityAnim, slideInFromBottom, slideLeftAnim } from '@animations';
 import { Store } from '@ngrx/store';
 import { selectProducts, StoreState } from '@store';
-import { map, Observable, shareReplay, tap } from 'rxjs';
+import { map, Observable, of, shareReplay, single, take, tap } from 'rxjs';
 import { ModalService } from '../modal.service';
 
 
@@ -19,17 +19,56 @@ export class SearchModal implements OnInit {
 
   searchText = '';
 
-  showCategoryModal = false;
-
-  productCategoriesData$: Observable<any>;
+  data$: Observable<any>;
   productSubCategoriesData$: Observable<any>;
-  categoriesNameAndIcon$: Observable<any[]>;
   products$: Observable<any[]>;
 
-  showSearchResults = false;
-
-  subCategories = [];
+  subCategories_ = [];
   showSubCategory = {};
+
+  allProducts = [];
+
+  screensStack;
+  screens = {
+    categories: {
+      name: 'categories',
+      isActive: true,
+      close: () => this.closeModal.emit(),
+      closeButton: {
+        icon: '',
+        text: 'close'
+      }
+    },
+    products: {
+      name: 'products',
+      isActive: false,
+      close: () => {
+        this.screens.products.isActive = false;
+        this.screensStack.pop();
+      },
+      closeButton: {
+        icon: '',
+        text: 'close'
+      }
+    },
+    searchResults: {
+      name: 'searchResults',
+      isActive: false,
+      close: () => {
+        this.screens.searchResults.isActive = false;
+        this.screensStack.pop();
+      },
+      closeButton: {
+        icon: '',
+        text: 'close'
+      }
+    }
+  };
+
+  allProducts$;
+  filteredProducts$;
+  categoriesNameAndIcon$;
+  subCategories: { [key: string]: Observable<any[]> } = {};
 
   constructor(
     public modalService: ModalService,
@@ -37,27 +76,40 @@ export class SearchModal implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productCategoriesData$ = this.store.select(selectProducts).pipe(shareReplay());
-    this.categoriesNameAndIcon$ = this.productCategoriesData$.pipe(
-      map(data => data.map(category => ({ text: category.name, icon: category.icon })))
-    );
+    this.screensStack = [this.screens.categories];
+
+    this.store.select(selectProducts).pipe(take(1)).subscribe(data => {
+      const categoriesNameAndIcon = [];
+      let allProducts = [];
+      data.forEach(category => {
+        categoriesNameAndIcon.push({ text: category.name, icon: category.icon });
+        category.products.forEach(subCategory => {
+          allProducts = allProducts.concat(subCategory.products);
+        });
+        this.subCategories[category.name] = of(category.products).pipe(
+          tap(subCategories => {
+            this.resetSubCategories();
+            subCategories.forEach(subCategory => {
+              this.subCategories_.push(subCategory.name);
+              this.showSubCategory[subCategory.name] = true;
+            });
+          }),
+          shareReplay()
+        );
+      });
+      this.categoriesNameAndIcon$ = of(categoriesNameAndIcon);
+      this.allProducts$ = of(allProducts);
+      this.filteredProducts$ = this.allProducts$;
+    });
   }
 
   onCategoryClick(categoryName: string) {
-    this.showCategoryModal = true;
-
-    this.resetSubCategories();
-    this.productSubCategoriesData$ = this.productCategoriesData$.pipe(
-      map(data => data.filter(category => category.name === categoryName)[0].products),
-      tap(subCategories => subCategories.forEach(subCategory => {
-        this.subCategories.push(subCategory.name);
-        this.showSubCategory[subCategory.name] = true;
-      })),
-      shareReplay()
-    );
-
+    this.screens.products.isActive = true;
+    this.screensStack.push(this.screens.products);
+    this.productSubCategoriesData$ = this.subCategories[categoryName];
     this.products$ = this.productSubCategoriesData$.pipe(
       map(subCategories => {
+        console.log(subCategories);
         let productsToShow = [];
         subCategories.forEach(subCategory => {
           if (this.showSubCategory[subCategory.name]) {
@@ -70,14 +122,19 @@ export class SearchModal implements OnInit {
     );
   }
 
+  onShowSearchResults() {
+    this.screens.searchResults.isActive = true;
+    this.screensStack.push(this.screens.searchResults);
+  }
+
   resetSubCategories() {
-    this.subCategories = [];
+    this.subCategories_ = [];
     this.showSubCategory = {};
   }
 
   onSubCategoryClick(subCategory: string) {
     if (subCategory === 'all') {
-      this.subCategories.forEach(name => this.showSubCategory[name] = true);
+      this.subCategories_.forEach(name => this.showSubCategory[name] = true);
     } else {
       this.showSubCategory[subCategory] = !this.showSubCategory[subCategory];
     }
@@ -100,14 +157,27 @@ export class SearchModal implements OnInit {
   }
 
   onClose() {
-    if (this.showCategoryModal) {
-      this.showCategoryModal = false;
-    } else {
-      this.closeModal.emit();
-    }
+    let canClose = true;
+    this.screensStack.slice().reverse().forEach(screen => {
+      if (canClose && screen.isActive) {
+        screen.close();
+        canClose = false;
+      }
+    });
+  }
+
+  onSearchChange(_text: string) {
+    const text = _text.toLowerCase();
+    this.filteredProducts$ = this.allProducts$.pipe(
+      map((data: any[]) => {
+        const filteredProducts = data.filter(x => x.name.toLowerCase().includes(text));
+        return filteredProducts;
+      })
+    );
   }
 
   onStopSearch() {
     this.searchText = '';
   }
+
 }

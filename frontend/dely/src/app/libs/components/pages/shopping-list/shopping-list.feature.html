@@ -9,10 +9,9 @@
   [fullscreen]="true"
   [scrollY]="false"
   >
-
-  <div class="container ion-padding" *ngIf="data" [@hideLeftPart]="showSearchModal" >
-    <h1 class="margin-rem-b--xl">{{ data.title }}</h1>
-    <div class="list" *ngIf="false; else start">
+  <div class="container ion-padding" [@hideLeftPart]="showSearchModal" >
+    <h1 class="margin-rem-b--xl">{{ data.name }}</h1>
+    <div class="list" *ngIf="data.items.length; else start">
       list
     </div>
     <ng-template #start>
@@ -22,6 +21,5 @@
       </div>
     </ng-template>
   </div>
-
   <search-modal *ngIf="showSearchModal" @slideLeftAnim (closeModal)="showSearchModal = false"></search-modal>
 </ion-content>

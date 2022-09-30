@@ -1,0 +1,29 @@
+
+
+<navigation-top>
+  <div class="toolbar" toolbar>
+    <span class="title">Create a list</span>
+    <button (click)="closeModal.emit()">Close</button>
+  </div>
+</navigation-top>
+<ion-content>
+  <div class="container">
+    <input class="list-name padding-h--md padding-rem-b--md" type="text" placeholder="Name of your list" [(ngModel)]="listName">
+
+    <div class="choose-background padding-rem-b--md">
+      <h3 class="padding-rem-h--md margin-rem-b--xxs">Choose a background</h3>
+      <div class="backgrounds padding-rem-v--sm padding-rem-h--md">
+        <list-background-card [background]="_background" [isSelected]="background" *ngFor="let _background of BACKGROUNDS" (click)="onSelectBackground(_background)"></list-background-card>
+      </div>
+    </div>
+    <div class="share-section padding-rem-h--md">
+      <h3 class="margin-b--sm">Shop together</h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit ullam assumenda ut tempore non beatae rerum incidunt repudiandae.</p>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="footer">
+    <ui-button--4 (click)="onCreateList()" text="Create list"></ui-button--4>
+  </ion-toolbar>
+</ion-footer>

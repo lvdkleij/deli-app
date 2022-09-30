@@ -1,26 +1,30 @@
 <navigation-top>
   <div toolbar class="header ion-padding">
     <button (click)="onClose()">back</button>
-    <div class="searchbar" (click)="showSearchResults = true">
-      <input type="text" placeholder="Zoek een product" [(ngModel)]="searchText">
+    <div class="searchbar" (click)="onShowSearchResults()">
+      <input type="text" placeholder="Zoek een product" (ngModelChange)="onSearchChange($event)" [(ngModel)]="searchText">
     </div>
     <button *ngIf="searchText" (click)="onStopSearch()" @opacityAnim>x</button>
   </div>
 </navigation-top>
 
 <div class="container">
-
-  <div class="modal first ion-padding" [@hideTopPart]="showCategoryModal">
+  <div class="modal first padding-rem-h--md" [@hideTopPart]="screens.products.isActive">
+    <h2 class="margin-rem-b--sm">Categorieen</h2>
     <search-ingredient-list (product)="onCategoryClick($event)" [data]="categoriesNameAndIcon$ | async"></search-ingredient-list>
   </div>
 
-  <div class="modal second ion-padding" *ngIf="showCategoryModal" @slideInFromBottom>
+  <div class="modal second padding-rem-h--md margin-rem-b--sm" *ngIf="screens.products.isActive" @slideInFromBottom>
     <ng-container *ngIf="productSubCategoriesData$ | async as subCategories" >
       <div class="sub-categories padding-rem-b--md">
         <button (click)="onSubCategoryClick('all')">
           all
         </button>
-        <button *ngFor="let subCategory of subCategories" (click)="onSubCategoryClick(subCategory.name)">
+        <button
+          *ngFor="let subCategory of subCategories"
+          (click)="onSubCategoryClick(subCategory.name)"
+          [ngClass]="{ 'isActive': showSubCategory[subCategory.name]}"
+        >
           {{ subCategory.name }}
         </button>
       </div>
@@ -33,9 +37,10 @@
     <!-- https://dribbble.com/shots/15261358-Recipe-App-Concept -->
   </div>
 
-  <div class="modal third search-results ion-padding" *ngIf="showSearchResults">
-
-
+  <div class="modal third search-results padding-rem-h--md" *ngIf="screens.searchResults.isActive">
+    <div class="search-results-container">
+      <div *ngFor="let product of filteredProducts$ | async"> {{ product.name }}</div>
+    </div>
   </div>
 </div>
 

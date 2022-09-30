@@ -11,7 +11,7 @@ import { hideLeftPart, slideLeftAnim } from '@animations';
 })
 export class ShoppingListFeature implements OnInit {
 
-  @Input() data: { title: string; productsData: { [key: string]: []} };
+  @Input() data: any;
 
   showSearchModal = false;
 
@@ -19,6 +19,6 @@ export class ShoppingListFeature implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
+    console.log(this.data);
   }
 }

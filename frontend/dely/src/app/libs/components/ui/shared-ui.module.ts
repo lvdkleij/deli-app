@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { Button2Component } from './buttons/button-2/button-2.component';
+import { Button4Component } from './buttons/button-4/button-4.component';
 import { Button1Component } from './buttons/button1/button1.component';
 import { ListBackgroundCardComponent } from './cards/list-background/list-background.component';
 import { ShoppingListCardComponent } from './cards/shopping-list/shopping-list-card.component';
@@ -24,6 +25,7 @@ import { SliderComponent } from './wizzard/nav/slider.component';
     ShoppingListCardComponent,
     ListBackgroundCardComponent,
     Button2Component,
+    Button4Component,
     SliderComponent
   ],
   declarations: [
@@ -33,6 +35,7 @@ import { SliderComponent } from './wizzard/nav/slider.component';
     ShoppingListCardComponent,
     ListBackgroundCardComponent,
     Button2Component,
+    Button4Component,
     SliderComponent
   ],
   providers: []

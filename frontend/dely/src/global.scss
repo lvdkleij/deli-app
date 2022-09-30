@@ -35,17 +35,44 @@
   font-family: 'Nunito';
   font-weight: normal;
   font-style: normal;
+  color: var(--black);
+
 }
 
 html, body {
   overflow: hidden;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   line-height: 1.2;
-  color: var(--black);
   font-weight: 600;
+}
+
+p {
+  margin: 0;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
 }
 
 .scroll-content {

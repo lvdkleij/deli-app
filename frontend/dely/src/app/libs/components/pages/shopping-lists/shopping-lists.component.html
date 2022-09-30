@@ -1,7 +1,6 @@
 <navigation-top>
-  <div class="toolbar" toolbar>
-    <span [routerLink]="['/shopping-lists']">lists</span>
-    <span>settings</span>
+  <div class="toolbar" toolbar *ngIf="activeShoppingList$ | async as listName">
+    <span [routerLink]="['/shopping-lists/' + listName]">{{ listName }}</span>
   </div>
 </navigation-top>
 
@@ -18,5 +17,12 @@
     <div class="body">
       <shopping-list-card [shoppingListCardData]="shoppingListData" *ngFor="let shoppingListData of shoppingListsData"></shopping-list-card>
     </div>
+    <ui-button--2 id="open-modal" text="Add list"></ui-button--2>
   </div>
+
+  <ion-modal #modal trigger="open-modal" [canDismiss]="true" [presentingElement]="presentingElement">
+    <ng-template>
+      <add-list-feature (closeModal)="modal.dismiss()"></add-list-feature>
+    </ng-template>
+  </ion-modal>
 </ion-content>

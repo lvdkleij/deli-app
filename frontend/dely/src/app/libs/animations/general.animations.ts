@@ -9,6 +9,16 @@ export const slideLeftAnim = trigger('slideLeftAnim', [
   ])
 ]);
 
+export const slideFromBottom = trigger('slideFromBottom', [
+  transition(':enter', [
+    style({ transform: 'translateY(-100%)'}),
+    animate('300ms ease-out', style({ transform: 'translateY(0)' }))]),
+  transition(':leave', [
+    animate('300ms ease-out', style({ transform: 'translateY(-100%)' }))
+  ])
+]);
+
+
 export const slideInFromBottom = trigger('slideInFromBottom', [
   transition(':enter', [
     style({ transform: 'translateY(100%)'}),
@@ -21,7 +31,7 @@ export const slideInFromBottom = trigger('slideInFromBottom', [
 export const opacityAnim = trigger('opacityAnim', [
   transition(':enter', [
     style({ opacity: '0'}),
-    animate('3000ms ease-out', style({ opacity: '1' }))]),
+    animate('800ms ease-out', style({ opacity: '1' }))]),
   transition(':leave', [
     animate('0ms ease-out', style({ opacity: '0' }))
   ])

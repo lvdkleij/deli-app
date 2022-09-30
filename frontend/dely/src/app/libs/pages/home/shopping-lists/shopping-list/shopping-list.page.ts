@@ -32,7 +32,8 @@ export class ShoppingListPage implements AfterViewInit, OnDestroy, OnInit {
     private readonly router: Router,
     private readonly navCtrl: NavController,
     readonly keyboardListener: KeyboardListenerService,
-  ) { }
+  ) {
+   }
 
   ngOnInit(): void {
     this.store.dispatch(setActiveShoppingList({ activeShoppingList: this.route.snapshot.params.id}));

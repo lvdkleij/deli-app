@@ -15,5 +15,5 @@ export class ShoppingListCardComponent {
 export interface ShoppingListCardData {
   background: string;
   name: string;
-  sharedWidth: string[];
+  members: string[];
 }

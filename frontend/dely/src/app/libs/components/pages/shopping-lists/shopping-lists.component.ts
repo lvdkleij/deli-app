@@ -3,7 +3,7 @@ import { ShoppingListCardData } from '@components/ui/cards/shopping-list/shoppin
 
 
 @Component({
-  selector: 'shopping-lists-component',
+  selector: 'shopping-lists-feature',
   templateUrl: 'shopping-lists.component.html',
   styleUrls: ['shopping-lists.component.scss']
 })

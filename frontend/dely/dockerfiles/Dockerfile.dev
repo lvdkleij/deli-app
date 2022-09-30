@@ -21,6 +21,3 @@ COPY . ./
 # Application metadata
 EXPOSE 8100
 CMD ["npm", "run", "start"]
-
-
-#java -jar wiremock-jre8-standalone-2.33.2.jar --root-dir src/app/libs/mocks

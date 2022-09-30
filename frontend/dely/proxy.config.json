@@ -1,0 +1,12 @@
+{
+  "/hello": {
+    "target": "https://localhost:8443",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {"^/hello" : ""},
+    "headers": {
+      "Connection": "keep-alive"
+    }
+  }
+}

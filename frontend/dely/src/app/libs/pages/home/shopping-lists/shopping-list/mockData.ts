@@ -4,7 +4,7 @@ export const mockItemListsData = [
   {
     name: 'list1',
     background: 'white',
-    sharedWith: [],
+    members: [],
     items: [
       {
         name: 'Groenten en fruit',
@@ -26,7 +26,7 @@ export const mockItemListsData = [
   {
     name: 'list2',
     background: 'white',
-    sharedWith: [],
+    members: [],
     items: [
       {
         name: 'Groenten en fruit',

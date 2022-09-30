@@ -12,12 +12,41 @@
 
   .body {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    .media-container {
+      position: relative;
+      flex: 0 0 65%;
+      background-color: #FFAB5D;
+    }
+
+    .text-container {
+      position: relative;
+      flex: 1;
+
+      .text {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        padding: 0 20px;
+        padding-top: 30px;
+      }
+    }
+
+
   }
 
   .bottom-navigation {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex: 0 0 30px;
+    padding: 0 20px;
+    padding-bottom: 11px;
   }
 
 }

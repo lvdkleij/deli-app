@@ -1,4 +1,22 @@
+<navigation-top>
+  <div class="toolbar" toolbar>
+    <span [routerLink]="['/shopping-lists']">lists</span>
+    <span>settings</span>
+  </div>
+</navigation-top>
 
-<div class="container padding-rem--sm">
-  <shopping-list-card [shoppingListCardData]="shoppingListData" *ngFor="let shoppingListData of shoppingListsData"></shopping-list-card>
-</div>
+<ion-content
+  [fullscreen]="true"
+  [scrollY]="false"
+  >
+  <div class="container">
+    <div class="heading">
+      <h1>
+        Delicious food ready to delivered for you
+      </h1>
+    </div>
+    <div class="body">
+      <shopping-list-card [shoppingListCardData]="shoppingListData" *ngFor="let shoppingListData of shoppingListsData"></shopping-list-card>
+    </div>
+  </div>
+</ion-content>

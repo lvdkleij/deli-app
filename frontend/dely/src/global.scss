@@ -28,19 +28,24 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import './assets/fonts/fonts.css';
 
 
+* {
+  font-family: 'Nunito';
+  font-weight: normal;
+  font-style: normal;
+}
 
 html, body {
   overflow: hidden;
 }
 
-body {
-}
-
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   line-height: 1.2;
+  color: var(--black);
+  font-weight: 600;
 }
 
 .scroll-content {
@@ -52,6 +57,20 @@ input {
   outline: none;
 }
 :root {
+
+  // colors
+  --primary: #26A8A8;
+  --success: #12AA18
+  --error: #E11E1E;
+  --gradient: #26A8A8;
+  --secondary: #FFAB5D;
+  --light-grey: #F8F8F8;
+  --grey: #BEBEBE;
+  --black: #1d1d1d;
+
+  // spacing
+  --space-page-padding: 20px;
+
 
   // spacing
   --space-em-unit: 1em;

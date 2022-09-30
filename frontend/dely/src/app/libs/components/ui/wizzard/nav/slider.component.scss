@@ -1,0 +1,28 @@
+button {
+  display: inline-block;
+  padding: 0;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.10);
+  height: 9px;
+  min-width: 9px;
+
+  -webkit-transition: min-width 1s ease-in-out;
+  -moz-transition: min-width 1s ease-in-out;
+  -o-transition: min-width 1s ease-in-out;
+  transition: min-width 1s ease-in-out;
+}
+
+.isActive {
+  background-color: #FFAB5D;
+  min-width: 28px !important;
+
+  -webkit-transition: min-width 1s ease-in-out;
+  -moz-transition: min-width 1s ease-in-out;
+  -o-transition: min-width 1s ease-in-out;
+  transition: min-width 1s ease-in-out;
+}
+
+:host {
+  display: flex;
+  gap: 15px;
+}

@@ -1,53 +1,30 @@
 <ion-modal [isOpen]="presentModal" @closeModal *ngIf="presentModal">
   <ng-template>
-    <ion-header>
-      <ion-toolbar>
-      </ion-toolbar>
-    </ion-header>
     <ion-content>
       <div
-        class="container ion-padding"
-        [@hideLeftPart]="screens[0].showScreen"
-        >
+        class="container ">
         <div class="body">
-          <h1 class="margin-rem-b--xl">Welcome</h1>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit tenetur, aliquid aut possimus ab nesciunt commodi voluptas inventore voluptates maiores! Atque voluptate odit dolore praesentium quidem nisi excepturi voluptatem laboriosam?</p>
-        </div>
-        <div class="bottom-navigation justify--end">
-          <button (click)="onNext(0)">Next</button>
-        </div>
-      </div>
+          <div class="media-container">
 
-      <div
-        *ngIf="screens[0].showScreen"
-        class="container ion-padding"
-        @slideLeftAnim
-        (@slideLeftAnim.done)="onSlideLeftDone(0)"
-        [@hideLeftPart]="screens[1].showScreen"
-        >
-        <div class="body">
-          <h1 class="margin-rem-b--xl">Welcome</h1>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In eius dolorum repellendus quibusdam repudiandae magnam doloremque vero, odio enim, et saepe blanditiis sequi omnis nostrum corporis quas? Provident, exercitationem. Rem?</p>
+          </div>
+          <div class="text-container">
+            <div class="text" *ngIf="screenCounter === 0">
+              <h1 class="margin-rem-b--md">Welcome</h1>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit tenetur, aliquid aut possimus ab nesciunt commodi voluptas inventore voluptates maiores! Atque voluptate odit dolore praesentium quidem nisi excepturi voluptatem laboriosam?</p>
+            </div>
+            <div class="text" *ngIf="screenCounter === 1" @opacityAnim>
+              <h1 class="margin-rem-b--md">Welcome</h1>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit tenetur, aliquid aut possimus ab nesciunt commodi voluptas inventore voluptates maiores! Atque voluptate odit dolore praesentium quidem nisi excepturi voluptatem laboriosam?</p>
+            </div>
+            <div class="text" *ngIf="screenCounter === 2" @opacityAnim>
+              <h1 class="margin-rem-b--md">Welcome</h1>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit tenetur, aliquid aut possimus ab nesciunt commodi voluptas inventore voluptates maiores! Atque voluptate odit dolore praesentium quidem nisi excepturi voluptatem laboriosam?</p>
+            </div>
+          </div>
         </div>
-        <div class="bottom-navigation" *ngIf="screens[0].showNav" @opacityAnim>
-          <button (click)="onPrevious(0)">Previous</button>
-          <button (click)="onNext(1)">Next</button>
-        </div>
-      </div>
-
-      <div
-        class="container ion-padding"
-        *ngIf="screens[1].showScreen"
-        @slideLeftAnim
-        (@slideLeftAnim.done)="onSlideLeftDone(1)"
-        >
-        <div class="body">
-          <h1 class="margin-rem-b--xl">Start your journey</h1>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In eius dolorum repellendus quibusdam repudiandae magnam doloremque vero, odio enim, et saepe blanditiis sequi omnis nostrum corporis quas? Provident, exercitationem. Rem?</p>
-        </div>
-        <div class="bottom-navigation" *ngIf="screens[1].showNav" @opacityAnim>
-          <button (click)="onPrevious(1)">Previous</button>
-          <button (click)="presentModal = false">Start</button>
+        <div class="bottom-navigation">
+          <ui-slider [currentSlide]="screenCounter" [totalSlides]="3"></ui-slider>
+          <ui-button--2 (click)="slides[screenCounter].onNext()" [text]="slides[screenCounter].buttonText"></ui-button--2>
         </div>
       </div>
     </ion-content>

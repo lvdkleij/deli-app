@@ -21,9 +21,9 @@ export const slideInFromBottom = trigger('slideInFromBottom', [
 export const opacityAnim = trigger('opacityAnim', [
   transition(':enter', [
     style({ opacity: '0'}),
-    animate('600ms ease-out', style({ opacity: '1' }))]),
+    animate('3000ms ease-out', style({ opacity: '1' }))]),
   transition(':leave', [
-    animate('600ms ease-out', style({ opacity: '0' }))
+    animate('0ms ease-out', style({ opacity: '0' }))
   ])
 ]);
 

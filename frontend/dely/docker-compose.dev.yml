@@ -1,5 +1,14 @@
 version: "3.8"
 services:
+  wiremock:
+    image: wiremock/wiremock
+    ports:
+      - "8443:8443"
+    command:
+      - "--https-port=8443"
+      - "--verbose"
+    volumes:
+      - ./src/app/libs/mocks/mappings:/home/wiremock/mappings
   frontend:
     build:
       context: .

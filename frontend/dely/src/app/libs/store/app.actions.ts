@@ -10,6 +10,11 @@ export const addShoppingList = createAction(
   props<{ list: any }>()
 );
 
+export const addProductToList = createAction(
+  '[App] add product to shopping list',
+  props<{ productToAdd: string }>()
+);
+
 export const setActiveShoppingList = createAction(
   '[App] set active shopping list',
   props<{ activeShoppingList: string }>()

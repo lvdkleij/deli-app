@@ -1,5 +1,34 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+:host {
+  display: contents;
+
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-page-padding);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 var(--space-page-padding);
+
+    .body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      padding-top: 14px;
+      padding-bottom: 50px;
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  }
 }

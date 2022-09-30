@@ -14,14 +14,37 @@ export class WelcomeFeature implements OnInit, AfterViewInit {
 
   @Input() data: UserProfileData;
 
-  isAuthenticated;
-
-  screens = [
-    { showScreen: false, showNav: false},
-    { showScreen: false, showNav: false},
-  ];
-
+  screenCounter = 0;
   presentModal = true;
+
+  onNext = () => {
+    this.screenCounter = Math.min(this.slides.length, this.screenCounter + 1);
+  };
+
+  onPrevious = () => {
+    this.screenCounter = Math.max(0, this.screenCounter + 1);
+  };
+  onGetStarted = () => {
+    this.presentModal = false;
+  };
+
+  slides = [
+    {
+      buttonText: 'Next',
+      onNext: this.onNext,
+      onPrevious: this.onPrevious
+    },
+    {
+      buttonText: 'Next',
+      onNext: this.onNext,
+      onPrevious: this.onPrevious
+    },
+    {
+      buttonText: 'Get Started',
+      onNext: this.onGetStarted,
+      onPrevious: this.onPrevious
+    },
+  ]
 
   constructor(
     private readonly navCtrl: NavController,
@@ -34,18 +57,6 @@ export class WelcomeFeature implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-  }
-
-  onNext(screenId: number) {
-    this.screens[screenId].showScreen = true;
-
-  }
-  onPrevious(screenId: number) {
-    this.screens[screenId].showScreen = false;
-  }
-
-  onSlideLeftDone(screenId: number) {
-    this.screens[screenId].showNav = true;
   }
 }
 

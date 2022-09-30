@@ -16,7 +16,7 @@
 
   <div class="modal second ion-padding" *ngIf="showCategoryModal" @slideInFromBottom>
     <ng-container *ngIf="productSubCategoriesData$ | async as subCategories" >
-      <div class="sub-categories">
+      <div class="sub-categories padding-rem-b--md">
         <button (click)="onSubCategoryClick('all')">
           all
         </button>

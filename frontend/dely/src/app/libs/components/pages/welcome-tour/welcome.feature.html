@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="media-container" *ngIf="!setupProfilePage">
+      <div class="text-container">
+        <text-component
+          [title]="orderedTourStops[currentTourStop].title"
+          [text]="orderedTourStops[currentTourStop].text"
+        ></text-component>
+      </div>
+
+      <div class="navigation">
+        <ui-slider [currentSlide]="currentTourStop" [totalSlides]="totalTourStops"></ui-slider>
+        <button class="next-button" (click)="orderedTourStops[currentTourStop].onNext()" *ngIf="currentTourStop < totalTourStops"><h4>{{ orderedTourStops[currentTourStop].onNextBtn }}</h4></button>
+      </div>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-footer>

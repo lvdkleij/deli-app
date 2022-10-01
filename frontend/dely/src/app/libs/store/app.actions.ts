@@ -25,7 +25,12 @@ export const setProducts = createAction(
   props<{ products: any[]}>()
 );
 
-export const setSkipWelcomePage = createAction(
-  '[App] skip welcome page',
-  props<{ _skipWelcomePage: boolean}>()
+export const setUser = createAction(
+  '[App] set user',
+  props<{ user: any}>()
+);
+
+export const setHasSeenTour = createAction(
+  '[App] has seen tour',
+  props<{ hasSeenTour: any}>()
 );

@@ -23,7 +23,18 @@ export const selectProducts = createSelector(
   (state: StoreState) => state.app.products
 );
 
-export const selectSkipWelcomePage = createSelector(
+export const selectUser = createSelector(
   selectApp,
-  (state: StoreState) => state.app.skipWelcomePage
+  (state: StoreState) => state.app.user
+);
+
+export const selectHasSeenTour = createSelector(
+  selectApp,
+  (state: StoreState) => state.app.hasSeenTour
+);
+
+export const selectUserAuthenticationStatus = createSelector(
+  selectUser,
+  selectHasSeenTour,
+  (user: any, hasSeenTour: boolean) => ({ user, hasSeenTour})
 );

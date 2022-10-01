@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { SharedUiModule } from '@components/ui';
-import { WelcomeFeature } from './welcome.feature';
+import { WelcomeTourFeature } from './welcome.feature';
+import { TextComponent } from './components/text/text.component';
 
 @NgModule({
   imports: [
@@ -15,10 +16,11 @@ import { WelcomeFeature } from './welcome.feature';
     SharedUiModule,
   ],
   declarations: [
-    WelcomeFeature
+    WelcomeTourFeature,
+    TextComponent,
   ],
   exports: [
-    WelcomeFeature
+    WelcomeTourFeature
   ]
 })
-export class WelcomeFeatureModule {}
+export class WelcomeTourFeatureModule {}

@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
 
+  private DOT_SIZE = 9;
+  private GAP = 15;
 
   private _currentSlide = 0;
   get currentSlide() {

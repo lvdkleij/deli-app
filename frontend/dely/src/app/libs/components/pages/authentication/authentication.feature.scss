@@ -1,0 +1,62 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  .title {
+    max-width: 70%;
+    margin-top: 200px;
+  }
+
+  form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .confirm {
+      text-align: center;
+
+      .sign-in-button {
+        border-radius: 15px;
+        width: 100%;
+        height: 50px;
+        background-color: var(--secondary);
+        margin-bottom: 15px;
+
+        h4 {
+          color: white;
+        }
+      }
+    }
+  }
+
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  height: 61px;
+  background-color: var(--light-grey);
+  border-radius: 15px;
+}
+
+ion-toolbar {
+  --min-height: 0;
+  --ion-background-color: white;
+}
+
+.header-md::after {
+  background-image: none;
+}
+
+:host {
+  display: contents;
+
+
+}

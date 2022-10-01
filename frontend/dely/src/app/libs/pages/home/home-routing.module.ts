@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationGuard } from '../../guards/authentication/authentication.guard';
 import { HomePage } from './home.page';
 
 const routes: Routes = [
   {
     path: '',
     component: HomePage,
+    canActivate: [AuthenticationGuard],
     children: [
       {
         path: 'shopping-lists',
@@ -45,14 +47,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'shopping-lists',
+        redirectTo: '/app/shopping-lists',
         pathMatch: 'full'
       },
     ]
   },
   {
     path: '',
-    redirectTo: 'shopping-lists',
+    redirectTo: '/app/shopping-lists',
     pathMatch: 'full'
   },
 ];
@@ -60,5 +62,8 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
+  providers: [
+    AuthenticationGuard
+  ]
 })
 export class HomePageRoutingModule {}

@@ -1,0 +1,10 @@
+<ng-container
+  *ngIf="actualData as data"
+>
+  <ng-container *ngIf="data.view === BUTTON_VIEW.FULL_WIDTH">
+    <ui-button--full-width [data]="actualData"></ui-button--full-width>
+  </ng-container>
+  <ng-container *ngIf="data.view === BUTTON_VIEW.LISTS_PAGE">
+    <ui-button--lists-page [data]="actualData"></ui-button--lists-page>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,11 @@
+<div class="card" *ngIf="data" [routerLink]="'/app/shopping-lists/' + data.name">
+  <h1 class="margin-rem-b--xl">{{ data.name }}</h1>
+
+  <div class="members">
+    <h2 class="margin-rem-b--sm">Members</h2>
+    <div class="members-list">
+      <div *ngFor="let i of data.members" class="circle">LA</div>
+      <div class="circle"><ion-icon name="add-outline"></ion-icon></div>
+    </div>
+  </div>
+</div>

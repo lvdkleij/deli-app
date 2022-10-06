@@ -13,8 +13,16 @@
       </div>
 
       <div class="navigation">
-        <ui-slider [currentSlide]="currentTourStop" [totalSlides]="totalTourStops"></ui-slider>
-        <button class="next-button" (click)="orderedTourStops[currentTourStop].onNext()" *ngIf="currentTourStop < totalTourStops"><h4>{{ orderedTourStops[currentTourStop].onNextBtn }}</h4></button>
+        <ui-slider
+          class="margin-rem-b--lg"
+          [currentSlide]="currentTourStop"
+          [totalSlides]="totalTourStops"
+        ></ui-slider>
+        <ui-button
+          *ngIf="currentTourStop < totalTourStops"
+          (click)="orderedTourStops[currentTourStop].onNext()"
+          [data]="{ text: orderedTourStops[currentTourStop].onNextBtn, view: BUTTON_VIEW.FULL_WIDTH}"
+        ></ui-button>
       </div>
   </div>
 </ion-content>

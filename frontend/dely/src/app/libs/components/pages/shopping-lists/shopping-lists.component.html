@@ -1,6 +1,6 @@
 <navigation-top>
-  <div class="toolbar" toolbar *ngIf="activeShoppingList$ | async as listName">
-    <span [routerLink]="['/shopping-lists/' + listName]">{{ listName }}</span>
+  <div class="toolbar" toolbar >
+    <span *ngIf="activeShoppingList$ | async as listName" [routerLink]="['/shopping-lists/' + listName]">{{ listName }}</span>
   </div>
 </navigation-top>
 
@@ -11,18 +11,29 @@
   <div class="container">
     <div class="heading">
       <h1>
-        Delicious food ready to delivered for you
+        My lists
       </h1>
     </div>
     <div class="body">
-      <shopping-list-card [shoppingListCardData]="shoppingListData" *ngFor="let shoppingListData of shoppingListsData"></shopping-list-card>
+      <ng-container *ngIf="shoppingListsData.length; else addListSection">
+        <ui-media-card
+          *ngFor="let shoppingListData of shoppingListsData"
+          [data]="shoppingListData"
+          [view]="MEDIA_CARD_VIEW.LIST"
+        ></ui-media-card>
+      </ng-container>
+      <ng-template #addListSection>
+        <div>
+          <h2>You have no shopping lists yet. Create one using the button below</h2>
+        </div>
+      </ng-template>
     </div>
-    <ui-button--2 id="open-modal" text="Add list"></ui-button--2>
+    <ui-button [data]="{ text: 'Create list', icon: 'add-outline', view: BUTTON_VIEW.LISTS_PAGE }" id="open-modal"></ui-button>
   </div>
-
-  <ion-modal #modal trigger="open-modal" [canDismiss]="true" [presentingElement]="presentingElement">
-    <ng-template>
-      <add-list-feature (closeModal)="modal.dismiss()"></add-list-feature>
-    </ng-template>
-  </ion-modal>
 </ion-content>
+
+<ion-modal #modal trigger="open-modal" [canDismiss]="true" [presentingElement]="presentingElement">
+  <ng-template>
+    <add-list-feature (closeModal)="modal.dismiss()"></add-list-feature>
+  </ng-template>
+</ion-modal>

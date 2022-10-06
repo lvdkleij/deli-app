@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NavigationTopModule } from '@components/navigation';
-import { SharedUiModule } from '@components/ui';
+import { ButtonComponentModule, SharedUiModule } from '@components/ui';
 import { IonicModule } from '@ionic/angular';
 import { AddListFeature } from './add-list.feature';
 
@@ -15,8 +15,9 @@ import { AddListFeature } from './add-list.feature';
     FormsModule,
     RouterModule,
     NavigationTopModule,
+    ButtonComponentModule,
   ],
   exports: [AddListFeature],
-  declarations: [AddListFeature]
+  declarations: [AddListFeature,]
 })
 export class AddListFeatureModule {}

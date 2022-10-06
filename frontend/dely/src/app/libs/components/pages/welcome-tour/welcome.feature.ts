@@ -6,6 +6,7 @@ import { closeModal, hideLeftPart, opacityAnim, slideLeftAnim } from '@animation
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { setHasSeenTour, StoreState } from '@store';
+import { BUTTON_VIEW } from '@components/ui';
 
 @Component({
   selector: 'welcome-tour-feature',
@@ -14,6 +15,7 @@ import { setHasSeenTour, StoreState } from '@store';
   animations: [slideLeftAnim, opacityAnim, hideLeftPart, closeModal]
 })
 export class WelcomeTourFeature implements OnInit, AfterViewInit {
+  BUTTON_VIEW = BUTTON_VIEW;
 
   presentModal = true;
 

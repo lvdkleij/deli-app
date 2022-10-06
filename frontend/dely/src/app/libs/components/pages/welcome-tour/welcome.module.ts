@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { SharedUiModule } from '@components/ui';
+import { ButtonComponentModule, SharedUiModule } from '@components/ui';
 import { WelcomeTourFeature } from './welcome.feature';
 import { TextComponent } from './components/text/text.component';
 
@@ -14,6 +14,7 @@ import { TextComponent } from './components/text/text.component';
     RouterModule,
     IonicModule,
     SharedUiModule,
+    ButtonComponentModule
   ],
   declarations: [
     WelcomeTourFeature,

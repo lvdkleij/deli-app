@@ -1,5 +1,5 @@
 <navigation-top>
-  <div class="toolbar ion-padding" toolbar [@hideLeftPart]="showSearchModal">
+  <div class="toolbar ion-padding" toolbar>
     <span [routerLink]="['/app/shopping-lists']">lists</span>
     <span>settings</span>
   </div>
@@ -9,7 +9,7 @@
   [fullscreen]="true"
   [scrollY]="false"
   >
-  <div class="container ion-padding" [@hideLeftPart]="showSearchModal" >
+  <div class="container ion-padding">
     <h1 class="margin-rem-b--xl">{{ data.name }}</h1>
     <div class="list" *ngIf="data.items.length; else start">
       list
@@ -21,5 +21,5 @@
       </div>
     </ng-template>
   </div>
-  <search-modal *ngIf="showSearchModal" @slideLeftAnim (closeModal)="showSearchModal = false"></search-modal>
+  <search-modal *ngIf="showSearchModal" @slideInFromTop (closeModal)="showSearchModal = false"></search-modal>
 </ion-content>

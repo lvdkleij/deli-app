@@ -9,12 +9,12 @@
 </navigation-top>
 
 <div class="container">
-  <div class="modal first padding-rem-h--md" [@hideTopPart]="screens.products.isActive">
+  <div class="modal first padding-rem-h--md" [@hideLeftPart]="screens.products.isActive">
     <h2 class="margin-rem-b--sm">Categorieen</h2>
     <search-ingredient-list (product)="onCategoryClick($event)" [data]="categoriesNameAndIcon$ | async"></search-ingredient-list>
   </div>
 
-  <div class="modal second padding-rem-h--md margin-rem-b--sm" *ngIf="screens.products.isActive" @slideInFromBottom>
+  <div class="modal second padding-rem-h--md margin-rem-b--sm" *ngIf="screens.products.isActive" @slideInFromRight>
     <ng-container *ngIf="productSubCategoriesData$ | async as subCategories" >
       <div class="sub-categories padding-rem-b--md">
         <button (click)="onSubCategoryClick('all')">

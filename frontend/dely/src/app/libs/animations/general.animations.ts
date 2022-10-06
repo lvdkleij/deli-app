@@ -19,6 +19,24 @@ export const slideFromBottom = trigger('slideFromBottom', [
 ]);
 
 
+export const slideInFromTop= trigger('slideInFromTop', [
+  transition(':enter', [
+    style({ transform: 'translateY(100%)'}),
+    animate('300ms ease-out', style({ transform: 'translateY(0)' }))]),
+  transition(':leave', [
+    animate('300ms ease-out', style({ transform: 'translateY(100%)' }))
+  ])
+]);
+
+export const slideInFromRight= trigger('slideInFromRight', [
+  transition(':enter', [
+    style({ transform: 'translateX(100%)'}),
+    animate('300ms ease-out', style({ transform: 'translateX(0)' }))]),
+  transition(':leave', [
+    animate('300ms ease-out', style({ transform: 'translateX(100%)' }))
+  ])
+]);
+
 export const slideInFromBottom = trigger('slideInFromBottom', [
   transition(':enter', [
     style({ transform: 'translateY(100%)'}),

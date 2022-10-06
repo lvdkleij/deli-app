@@ -1,6 +1,6 @@
 
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { hideLeftPart, hideTopPart, opacityAnim, slideInFromBottom, slideLeftAnim } from '@animations';
+import { hideLeftPart, hideTopPart, opacityAnim, slideInFromBottom, slideInFromRight, slideLeftAnim } from '@animations';
 import { Store } from '@ngrx/store';
 import { selectProducts, StoreState } from '@store';
 import { map, Observable, of, shareReplay, single, take, tap } from 'rxjs';
@@ -11,7 +11,7 @@ import { ModalService } from '../modal.service';
   selector: 'search-modal',
   templateUrl: 'search.modal.html',
   styleUrls: ['search.modal.scss'],
-  animations: [hideLeftPart, slideLeftAnim, opacityAnim, slideInFromBottom, hideTopPart]
+  animations: [hideLeftPart, slideLeftAnim, opacityAnim, slideInFromBottom, hideTopPart, slideInFromRight]
 })
 export class SearchModal implements OnInit {
 

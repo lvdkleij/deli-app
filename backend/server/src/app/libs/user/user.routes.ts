@@ -1,8 +1,9 @@
-import { sayHi } from "./user-controller";
 import { Router } from "express";
+import { UserController } from "./user-controller";
 
 const router = Router();
 
-router.get('/all', sayHi)
+router.post('/', UserController.storeUser)
+router.get('/', UserController.getAllUsers)
 
 export { router };

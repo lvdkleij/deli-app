@@ -4,7 +4,7 @@ import user from './libs/user';
 
 const rootRouter = Router();
 
-rootRouter.use('./user', user);
-rootRouter.use('/', (req, res) => {res.send('hello')})
+rootRouter.use('/user', user);
+rootRouter.use('/', (req, res) => {res.send('hello')});
 
 export default rootRouter;

@@ -16,5 +16,7 @@ async function setupDatabase() {
     }
 }
 
-export { pgClient, setupDatabase};
+setupDatabase();
+
+export { pgClient };
 

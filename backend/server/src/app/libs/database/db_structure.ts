@@ -4,7 +4,7 @@ export const db_structure = {
         id integer generated always as identity,
         email varchar(60) not null unique, 
         name varchar(70) not null, 
-        date_of_creation DATE not null default CURRENT_DATE,
+        date_of_creation TIMESTAMP not null default CURRENT_TIMESTAMP,
         verified boolean not null default false,
         jwt_token text not null,
         PRIMARY KEY (id)
@@ -13,7 +13,7 @@ export const db_structure = {
     `CREATE TABLE IF NOT EXISTS user_verification (
         user_id integer REFERENCES app_user(id),
         code varchar(4) not null,
-        valid_until DATE not null,
+        valid_until TIMESTAMP not null,
         PRIMARY KEY (user_id)
     )`,
     list: 
@@ -21,7 +21,7 @@ export const db_structure = {
         id integer generated always as identity, 
         original_name varchar(30) not null,
         original_type varchar(30) not null,
-        unused_period DATE not null,
+        unused_period TIMESTAMP not null,
         PRIMARY KEY (id)
     )`,
     user__list: 

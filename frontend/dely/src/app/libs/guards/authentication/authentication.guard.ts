@@ -17,8 +17,8 @@ export class AuthenticationGuard implements CanActivate {
     __: RouterStateSnapshot
   ): Observable<boolean|UrlTree> {
     return this.store.select(selectUserAuthenticationStatus).pipe(
-      map(({ user, hasSeenTour}) => hasSeenTour ? true :
-        this.router.parseUrl('/welcome-tour'))
+      map(({ user, hasSeenTour}) => user ? true :
+      this.router.parseUrl(hasSeenTour ? '/authentication' : '/welcome-tour'))
     );
   }
 }

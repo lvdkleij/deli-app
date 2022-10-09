@@ -12,14 +12,12 @@
         <input type="text" placeholder="Name" *ngIf="!isSignInForm">
         <input type="text" placeholder="Email address">
         <input type="text" placeholder="Confirm email address" *ngIf="!isSignInForm">
-        <input type="text" placeholder="Password">
-        <input type="text" placeholder="Confirm password" *ngIf="!isSignInForm">
       </div>
 
       <div class="confirm">
         <button class="sign-in-button"><h4>{{ forms[currentForm].name }}</h4></button>
-        <p *ngIf="isSignInForm">Don't have an account? Please <a (click)="onChangeForm()">{{ forms[otherForm].name }}</a></p>
-        <p *ngIf="!isSignInForm">Already have an account? Please <a (click)="onChangeForm()">{{ forms[otherForm].name }}</a></p>
+        <p *ngIf="isSignInForm">Are you new here? Please <a (click)="onChangeForm()">Sign up</a></p>
+        <p *ngIf="!isSignInForm">Already have an account? Please <a (click)="onChangeForm()">Sign in</a></p>
       </div>
     </form>
   </div>

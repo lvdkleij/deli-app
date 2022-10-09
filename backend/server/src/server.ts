@@ -10,6 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+
 setupDatabase();
 
 app.use('/', rootRouter);

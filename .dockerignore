@@ -1,2 +1,10 @@
 node_modules
 npm-debug.log
+**/*.pyc
+**/*.pyo
+**/*.mo
+.gitignore
+.git/
+**/__pycache__/
+Dockerfile
+**/*.md

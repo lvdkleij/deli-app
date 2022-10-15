@@ -3,8 +3,9 @@ import { UserController } from "./user-controller";
 
 const router = Router();
 
-router.post('/', UserController.insertUser)
+router.post('/signUp', UserController.signUpUser)
 router.get('/', UserController.getAllUsers)
-router.post('/signIn', UserController.sendUserValidationToEmail)
+router.post('/signIn', UserController.signInUser)
+router.post('/validateCode', UserController.validateUser)
 
 export { router };

@@ -16,8 +16,7 @@ RUN apk add --update python3 make g++ \
 
 RUN npm i
 
-COPY . ./
+COPY . .
 
 # Application metadata
-EXPOSE 8100
 CMD ["npm", "run", "start"]

@@ -1,0 +1,69 @@
+version: "3.8"
+services:
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - frontend-app
+      - backend-authentication
+
+  frontend-app:
+    build:
+      context: ./frontend/dely
+      dockerfile: ./dockerfiles/Dockerfile.dev
+    expose:
+      - "8100"
+    volumes:
+      - "/app/node_modules"
+      - "./frontend/dely:/app"
+    networks:
+      - backend
+      - frontend
+
+  backend-authentication:
+    build:
+      dockerfile: ./dockerfiles/Dockerfile.dev
+      context: ./backend/authentication
+    env_file:
+      - backend/backend-dev.env
+    volumes:
+      - /app/node_modules
+      - ./backend/authentication:/app
+    expose:
+      - "6300"
+    networks:
+      - backend
+      - database
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:14.5
+    user: postgres
+    networks:
+      - database
+    environment:
+      - POSTGRES_PASSWORD=postgres_password
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+
+networks:
+  frontend:
+    name: frontend
+    driver: bridge
+  backend:
+    name: backend
+    driver: bridge
+  database:
+    name: database
+    driver: bridge

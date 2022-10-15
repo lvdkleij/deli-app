@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { appReducer } from './libs/store';
+import { HttpClientModule } from  '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { appReducer } from './libs/store';
       scrollPadding: false,
     }),
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(appReducer)
   ],

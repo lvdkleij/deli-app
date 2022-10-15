@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/Dockerfile.prod
+    ports:
+      - "8100:8100"

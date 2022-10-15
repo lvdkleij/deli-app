@@ -1,0 +1,61 @@
+version: "3.9"
+services:
+  reverse_proxy:
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
+    networks:
+      - nginx_proxy
+    depends_on:
+      - frontend-app
+      - backend-authentication
+
+  frontend-app:
+    build:
+      context: ./frontend/dely
+      dockerfile: ./dockerfiles/Dockerfile.prod
+    expose:
+      - "8100"
+    networks:
+      - backend
+      - nginx_proxy
+    depends_on:
+      - backend-authentication
+
+  backend-authentication:
+    build:
+      dockerfile: ./dockerfiles/Dockerfile.prod
+      context: ./backend/authentication
+    env_file:
+      - backend/backend-dev.env
+    expose:
+      - "6300"
+    networks:
+      - backend
+      - database
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:14.5
+    user: postgres
+    networks:
+      - database
+    environment:
+      - POSTGRES_PASSWORD=postgres_password
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+
+networks:
+  nginx_proxy:
+    driver: bridge
+  backend:
+    driver: bridge
+  database:
+    driver: bridge

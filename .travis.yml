@@ -7,10 +7,11 @@ services:
   - docker
 
 before_install:
-  - docker build -f frontend/dely/dockerfiles/Dockerfile.dev -t lvdkleij/deli-app ./frontend/dely
+  - docker build -f backend/authentication/dockerfiles/Dockerfile.dev -t lvdkleij/app-shopping-list-backend-user-authentication ./backend/authentication
+  - docker build -f frontend/dely/dockerfiles/Dockerfile.dev -t lvdkleij/app-shopping-list-frontend-app ./frontend/dely
 
-script:
-  - docker run -e CI=true lvdkleij/deli-app npm run test
+# script:
+#   - docker run -e CI=true lvdkleij/deli-app npm run test
 
 deploy:
   provider: script

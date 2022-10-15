@@ -4,20 +4,19 @@
 </ion-header>
 
 <ion-content>
-  <div class="container">
+  <div class="container" >
     <h1 class="title margin-rem-b--md">Sign in to your account</h1>
-    <form>
-
+    <form [formGroup]="authenticationForm" (ngSubmit)="onSubmit()">
       <div class="input-fields">
-        <input type="text" placeholder="Name" *ngIf="!isSignInForm">
-        <input type="text" placeholder="Email address">
-        <input type="text" placeholder="Confirm email address" *ngIf="!isSignInForm">
+        <input *ngIf="!isSignInForm" type="text" placeholder="Name" formControlName="name">
+        <input type="email" placeholder="Email" formControlName="email">
+        <input *ngIf="!isSignInForm" type="email" placeholder="Confirm email" formControlName="confirmEmail">
       </div>
 
       <div class="confirm">
-        <button class="sign-in-button"><h4>{{ forms[currentForm].name }}</h4></button>
-        <p *ngIf="isSignInForm">Are you new here? Please <a (click)="onChangeForm()">Sign up</a></p>
-        <p *ngIf="!isSignInForm">Already have an account? Please <a (click)="onChangeForm()">Sign in</a></p>
+        <button type="submit" class="sign-in-button"><h4>{{ isSignInForm ? FORMS.SIGN_IN : FORMS.SIGN_UP }}</h4></button>
+        <p *ngIf="isSignInForm">New to ShoppingList? <a (click)="onChangeForm(FORMS.SIGN_UP)">Sign up</a></p>
+        <p *ngIf="!isSignInForm">Already have an account? Please <a (click)="onChangeForm(FORMS.SIGN_IN)">Sign in</a></p>
       </div>
     </form>
   </div>

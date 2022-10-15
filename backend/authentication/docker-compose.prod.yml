@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:14.5
+    restart: always
+    user: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres_password
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  authentication:
+    build:
+      dockerfile: dockerfiles/Dockerfile.prod
+      context: .
+    environment:
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=postgres
+      - PGPASSWORD=postgres_password
+      - PGPORT=5432
+    ports:
+      - 6300:6300
+    depends_on:
+      postgres:
+        condition: service_healthy
+    stdin_open: true
+    tty: true

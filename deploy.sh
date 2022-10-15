@@ -1,4 +1,3 @@
-
 docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 
 docker build -f backend/authentication/dockerfiles/Dockerfile.prod -t lvdkleij/app-shopping-list-backend-user-authentication ./backend/authentication

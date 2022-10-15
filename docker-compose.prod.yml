@@ -31,7 +31,7 @@ services:
       - PGUSER=postgres
       - PGHOST=app-shopping-list-user-authentication.ckwcwakizcs2.eu-west-1.rds.amazonaws.com
       - PGDATABASE=postgres
-      - PGPASSWORD=QuqpjjRsmA72FJS
+      - PGPASSWORD=${PGPASSWORD}
       - PGPORT=5432
     expose:
       - "6300"

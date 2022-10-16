@@ -1,20 +1,16 @@
 version: "3.9"
 services:
   reverse_proxy:
-    build:
-      context: ./nginx
+    image: lakleij/app-shopping-list-reverse-proxy
     ports:
       - "80:80"
     networks:
       - nginx_proxy
     depends_on:
       - frontend-app
-      - backend-authentication
 
   frontend-app:
-    build:
-      context: ./frontend/dely
-      dockerfile: ./dockerfiles/Dockerfile.prod
+    image: lakleij/app-shopping-list-frontend-app
     expose:
       - "8100"
     networks:
@@ -24,9 +20,7 @@ services:
       - backend-authentication
 
   backend-authentication:
-    build:
-      dockerfile: ./dockerfiles/Dockerfile.prod
-      context: ./backend/authentication
+    image: lakleij/app-shopping-list-backend-user-authentication
     env_file:
       - backend/backend-dev.env
     expose:

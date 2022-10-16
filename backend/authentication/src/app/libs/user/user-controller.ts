@@ -1,6 +1,9 @@
 import { pgClient } from "../database";
 import { UserService } from "./user-service";
 import nodemailer from 'nodemailer';
+import jwt from 'jsonwebtoken';
+import { SECRET } from "../../app.config";
+
 
 export class UserController {
     static async signUpUser(req: any, res: any) {
@@ -93,9 +96,15 @@ export class UserController {
             res.status(200).send({ type: 'ERROR', message: 'INVALID USER', description: 'User does not exists in database', result: []});
             return;
         }
-
+        
         if (userVerification.code === validationCodeAttempt && Date.now() <= userVerification.valid_until.getTime()) {
-            return res.status(200).send({ value: 'okey' })
+            return res.status(200).send({ 
+                user: {
+                    name: userVerification.name,
+                    email: userEmail
+                },
+                token: UserController.generateJwtToken(userVerification.id)
+            })
         } else {
             res.status(200).send({ type: 'ERROR', message: 'INVALID VALIDATION CODE', description: 'Wrong validation code', result: []});
             return;
@@ -134,6 +143,11 @@ export class UserController {
         });
     }
 
+    static generateJwtToken(id: number) {
+        return jwt.sign({ id }, SECRET, {
+            expiresIn: 60 // 86400 24 hours
+        });
+    }
 }
 
 interface User {

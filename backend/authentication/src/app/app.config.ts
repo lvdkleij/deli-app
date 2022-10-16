@@ -1,0 +1,1 @@
+export const SECRET = 'my-super-secret';

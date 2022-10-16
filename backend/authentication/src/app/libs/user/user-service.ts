@@ -61,7 +61,7 @@ export class UserService {
         return new Promise((resolve, reject) => {
             if (!email) { reject('cannot be empty'); }
             pgClient.query(
-                `SELECT * FROM user_verification WHERE user_id in (SELECT id FROM app_user where email=$1)`, 
+                `SELECT * FROM user_verification d JOIN app_user t ON d.user_id = t.id WHERE t.email=$1`, 
                 [email],
                 (err, result) => {
                     if (err) { return reject(err); }

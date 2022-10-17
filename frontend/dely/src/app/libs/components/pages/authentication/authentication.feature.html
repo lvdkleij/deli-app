@@ -5,20 +5,36 @@
 
 <ion-content>
   <div class="container" >
-    <h1 class="title margin-rem-b--md">Sign in to your account</h1>
-    <form [formGroup]="authenticationForm" (ngSubmit)="onSubmit()">
+    <div class="media"></div>
+    <form [formGroup]="authenticationForm">
+      <div class="form-type">
+        <h2 class="sl-h1" (click)="onChangeForm(FORMS.SIGN_IN)">Login</h2>
+        <h2 class="sl-h1" (click)="onChangeForm(FORMS.SIGN_UP)">Sign up</h2>
+      </div>
       <div class="input-fields">
         <input *ngIf="!isSignInForm" type="text" placeholder="Name" formControlName="name">
         <input type="email" placeholder="Email" formControlName="email">
-        <input *ngIf="!isSignInForm" type="email" placeholder="Confirm email" formControlName="confirmEmail">
       </div>
 
-      <div class="confirm">
-        <button type="submit" class="sign-in-button"><h4>{{ isSignInForm ? FORMS.SIGN_IN : FORMS.SIGN_UP }}</h4></button>
-        <p *ngIf="isSignInForm">New to ShoppingList? <a (click)="onChangeForm(FORMS.SIGN_UP)">Sign up</a></p>
-        <p *ngIf="!isSignInForm">Already have an account? Please <a (click)="onChangeForm(FORMS.SIGN_IN)">Sign in</a></p>
-      </div>
+      <ui-button
+        (click)="onSubmit()"
+        [data]="{ text: currentForm, view: BUTTON_VIEW.FULL_WIDTH}"
+      ></ui-button>
     </form>
+  </div>
+
+
+  <div class="modal">
+    <div class="modal-container">
+      <div class="lala">
+        <h2>fafsaf</h2>
+        <p>afafsaf</p>
+        <input type="email" placeholder="Email" class="input-code">
+      </div>
+      <ui-button
+        [data]="{ text: 'Validate', view: BUTTON_VIEW.FULL_WIDTH}"
+      ></ui-button>
+    </div>
   </div>
 </ion-content>
 

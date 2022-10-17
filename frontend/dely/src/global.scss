@@ -45,34 +45,46 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  line-height: 1.2;
-  font-weight: 600;
 }
 
-p {
+.sl-p--18 {
   margin: 0;
-  line-height: 1.8;
-  font-size: 14px;
-}
-
-h1 {
-  font-size: 22px;
-}
-
-h2 {
-  font-size: 20px;
-}
-
-h3 {
   font-size: 18px;
 }
 
-h4 {
+.sl-p--16 {
+  margin: 0;
   font-size: 16px;
 }
 
-h5 {
+.sl-p--14 {
+  margin: 0;
   font-size: 14px;
+}
+
+.sl-h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.sl-h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sl-h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.sl-h4 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.sl-h5 {
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .scroll-content {

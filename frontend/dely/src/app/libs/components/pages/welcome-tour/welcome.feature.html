@@ -4,26 +4,27 @@
 </ion-header>
 
 <ion-content>
-  <div class="media-container" *ngIf="!setupProfilePage">
-      <div class="text-container">
-        <text-component
-          [title]="orderedTourStops[currentTourStop].title"
-          [text]="orderedTourStops[currentTourStop].text"
-        ></text-component>
-      </div>
-
-      <div class="navigation">
-        <ui-slider
-          class="margin-rem-b--lg"
-          [currentSlide]="currentTourStop"
-          [totalSlides]="totalTourStops"
-        ></ui-slider>
-        <ui-button
-          *ngIf="currentTourStop < totalTourStops"
-          (click)="orderedTourStops[currentTourStop].onNext()"
-          [data]="{ text: orderedTourStops[currentTourStop].onNextBtn, view: BUTTON_VIEW.FULL_WIDTH}"
-        ></ui-button>
-      </div>
+  <div class="container">
+    <div class="body">
+      <div class="media"></div>
+      <text-component
+        class="text"
+        [title]="orderedTourStops[currentTourStop].title"
+        [text]="orderedTourStops[currentTourStop].text"
+      ></text-component>
+    </div>
+    <div class="footer">
+      <ui-slider
+        class="margin-rem-b--lg"
+        [currentSlide]="currentTourStop"
+        [totalSlides]="totalTourStops"
+      ></ui-slider>
+      <ui-button
+        *ngIf="currentTourStop < totalTourStops"
+        (click)="orderedTourStops[currentTourStop].onNext()"
+        [data]="{ text: orderedTourStops[currentTourStop].onNextBtn, view: BUTTON_VIEW.FULL_WIDTH}"
+      ></ui-button>
+    </div>
   </div>
 </ion-content>
 <ion-footer class="ion-no-border">

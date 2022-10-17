@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { SharedUiModule } from '@components/ui';
+import { SharedUiModule, ButtonComponentModule} from '@components/ui';
 import { AuthenticationFeature } from './authentication.feature';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { AuthenticationFeature } from './authentication.feature';
     RouterModule,
     IonicModule,
     SharedUiModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ButtonComponentModule
   ],
   declarations: [
     AuthenticationFeature,

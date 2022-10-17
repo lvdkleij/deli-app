@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { StoreState } from '@store';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BUTTON_VIEW } from '@components/ui';
 
 @Component({
   selector: 'authentication-feature',
@@ -16,11 +17,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AuthenticationFeature implements OnInit, AfterViewInit {
   FORMS = FORMS;
+  BUTTON_VIEW = BUTTON_VIEW;
   currentForm = FORMS.SIGN_IN;
 
   authenticationForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    confirmEmail: new FormControl({ value: '', disabled: this.isSignInForm}, [Validators.required, Validators.email]),
     name: new FormControl({ value: '', disabled: this.isSignInForm}, [Validators.required])
   });
 
@@ -54,26 +55,19 @@ export class AuthenticationFeature implements OnInit, AfterViewInit {
       },
       { headers }
     ).subscribe(x => console.log(x));
-    this.httpClient.get('/api/user').subscribe(x => console.log(x));
   };
 
   onChangeForm(formName: FORMS) {
     this.currentForm = formName;
     if (this.isSignInForm) {
-      this.getFormConfirmEmail.disable();
       this.getFormName.disable();
     } else {
-      this.getFormConfirmEmail.enable();
       this.getFormName.enable();
     }
   }
 
   get formEmail() {
     return this.authenticationForm.controls.email;
-  }
-
-  get getFormConfirmEmail() {
-    return this.authenticationForm.controls.confirmEmail;
   }
 
   get getFormName() {
@@ -84,6 +78,6 @@ export class AuthenticationFeature implements OnInit, AfterViewInit {
 }
 
 enum FORMS {
-  SIGN_IN='Sign in',
+  SIGN_IN='Login',
   SIGN_UP='Sign up'
 };

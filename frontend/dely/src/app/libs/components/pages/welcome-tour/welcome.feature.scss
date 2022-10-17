@@ -1,30 +1,36 @@
-.media-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: white;
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 500px;
+  min-width: 320px;
+}
 
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
-  .text-container {
-    position: absolute;
-    top: 60%;
-    right: 20px;
-    left: 20px;
-  }
+.media {
+  flex: 1;
+  margin: 30px;
+  background-color: rgba(255, 0, 0, 0.281);
+}
 
-  .navigation {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    right: 0;
-    bottom: 20px;
-    left: 0;
-    padding: 0 20px;
-  }
+.text {
+  flex: 0 0 30%;
+  margin: 0 20px;
+}
+
+.footer {
+  flex: 0;
+  margin: 0 20px;
+  margin-bottom: 30px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 ion-toolbar {

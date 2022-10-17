@@ -48,7 +48,6 @@ export class WelcomeTourFeature implements OnInit, AfterViewInit {
 
   currentTourStop = 0;
   totalTourStops = this.orderedTourStops.length;
-  setupProfilePage = false;
 
   constructor(
     private readonly router: Router,

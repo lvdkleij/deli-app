@@ -1,48 +1,94 @@
 .container {
-  height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  height: 100%;
+  min-height: 500px;
+  min-width: 320px;
+}
 
-  .title {
-    max-width: 70%;
-  }
+form {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  margin-bottom: 30px;
 
-  form {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  .confirm {
+    text-align: center;
 
-    .confirm {
-      text-align: center;
+    .sign-in-button {
+      border-radius: 15px;
+      width: 100%;
+      height: 50px;
+      background-color: var(--secondary);
 
-      .sign-in-button {
-        border-radius: 15px;
-        width: 100%;
-        height: 50px;
-        background-color: var(--secondary);
-        margin-bottom: 15px;
-
-        h4 {
-          color: white;
-        }
+      h4 {
+        color: white;
       }
     }
   }
+}
 
+.form-type {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.media {
+  flex: 1;
+  margin: 30px;
+  background-color: rgba(255, 0, 0, 0.281);
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .input-fields {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-bottom: 30px;
 }
 
 input {
   height: 61px;
   background-color: var(--light-grey);
   border-radius: 15px;
+}
+
+.modal {
+  position: absolute;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background-color: red;
+}
+
+.modal-container {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.lala {
+  flex: 1;
+}
+
+.input-code {
+  width: 100%;
+}
+
+ui-button {
+  flex: 0;
 }
 
 ion-toolbar {

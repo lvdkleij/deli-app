@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'dely',
+  appId: 'kley.shopping-list',
+  appName: 'ShoppingList',
   webDir: 'www',
   bundledWebRuntime: false
 };

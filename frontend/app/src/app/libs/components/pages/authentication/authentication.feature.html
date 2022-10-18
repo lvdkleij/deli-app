@@ -24,12 +24,12 @@
   </div>
 
 
-  <div class="modal">
+  <div class="modal" *ngIf="validateAccount">
     <div class="modal-container">
       <div class="lala">
         <h2>fafsaf</h2>
         <p>afafsaf</p>
-        <input type="email" placeholder="Email" class="input-code">
+        <input type="number" placeholder="1234" class="input-code">
       </div>
       <ui-button
         [data]="{ text: 'Validate', view: BUTTON_VIEW.FULL_WIDTH}"

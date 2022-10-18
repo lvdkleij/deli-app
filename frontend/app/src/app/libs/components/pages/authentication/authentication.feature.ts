@@ -31,6 +31,8 @@ export class AuthenticationFeature implements OnInit, AfterViewInit {
     private readonly httpClient: HttpClient
   ) {}
 
+  validateAccount = false;
+
   ngOnInit(): void {
 
   }
@@ -54,7 +56,14 @@ export class AuthenticationFeature implements OnInit, AfterViewInit {
         ...( !this.getFormName.disabled && { name: this.getFormName.value })
       },
       { headers }
-    ).subscribe(x => console.log(x));
+    ).subscribe((x: any) => {
+      console.log(x);
+      if (x.type === 'ERROR') {
+        console.log('ERROR');
+      } else {
+        this.validateAccount = true;
+      }
+    });
   };
 
   onChangeForm(formName: FORMS) {
